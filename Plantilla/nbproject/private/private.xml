@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <data xmlns="http://www.netbeans.org/ns/make-project-private/1">
+        <activeConfTypeElem>1</activeConfTypeElem>
+        <activeConfIndexElem>0</activeConfIndexElem>
+    </data>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Tienda.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Magnesio.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Hierro.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Tienda.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Resultado.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Rafaga.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Magnesio.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/main.cc</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Material.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Escudo.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Bomba.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/FactoriaNivel.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Partida.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Agente.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Hierro.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Rafaga.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Estado.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Escudo.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Nivel.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Menu.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Canyon.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Titanio.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Alien.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Resultado.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Motor2D.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Carbon.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Normal.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Meteorito.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Normal.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Partida.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Bala.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Estado.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Bomba.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Canyon.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Nivel.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Jefe.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Obstaculo.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Meteorito.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Pausa.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Jefe.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Titanio.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Carbon.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/NPC.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Pausa.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Bala.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/FactoriaNivel.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Motor2D.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Nave.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Menu.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/NPC.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Agente.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Obstaculo.cpp</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Material.h</file>
+            <file>file:/home/raquel/NetBeansProjects/Interpolacion/Alien.cpp</file>
+        </group>
+    </open-files>
+</project-private>
