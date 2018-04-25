@@ -23,21 +23,29 @@
 class Bala {
 public:
     Bala(m2D::Texture &textura); //constru
-    Bala(const Bala& orig);
+    Bala(m2D::Texture&, int, float);
+    Bala(m2D::Texture&, int, float, float);
+    Bala(const Bala& orig); 
     virtual ~Bala();
     int getTipo();
-    void fire(int speed);
-    
-    void setPos(m2D::Vector2f pos);
-    
+    void disparar();
+    void disparar_bomba(int);
+    void disparar_angulo(int);
+    void moverbala(int);
+    void setAngulo(float);
+    void escalarCanyon();
+    void disparar_canyon(m2D::Vector2f);
+    void fire(int speed);   
+    void setPos(m2D::Vector2f pos);  
     void draw(m2D::RenderWindow &window);//renderiza el alien
-   
-    m2D::Sprite returnShape();//devuelve el shape
+    m2D::Sprite& returnShape();//devuelve el shape
 private:
 
 protected:    
     m2D::Sprite bala;
     int type;
+    float velocidad;
+    float angulo;
 };
 
 #endif /* BALA_H */
