@@ -77,6 +77,13 @@ void Partida::handleInput(){
         if(event.getEventType()== sf::Event::Closed){
            m2D::RenderWindow::Instance()->close();
         }
+        else if(event.getEventType() == sf::Event::KeyPressed){
+            switch(event.getKey()){
+                case sf::Keyboard::Space:
+                    Nave::Instance()->disparar(texture);
+                break;
+            }
+        }
     }
 }
 
@@ -97,6 +104,8 @@ void Partida::draw(){
     }
     
     ship->draw();
+    
+    
 }
 
 void Partida::moveBackground(){

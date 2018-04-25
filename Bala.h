@@ -37,7 +37,7 @@ public:
     void disparar_canyon(m2D::Vector2f);
     void fire(int speed);   
     void setPos(m2D::Vector2f pos);  
-    void draw(m2D::RenderWindow &window);//renderiza el alien
+    void draw();//renderiza el alien
     m2D::Sprite& returnShape();//devuelve el shape
 private:
 

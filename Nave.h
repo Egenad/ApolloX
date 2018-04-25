@@ -21,7 +21,7 @@
 #include "Vector2f.h"
 #include "Texture.h"
 #include "RenderWindow.h"
-
+#include "Bala.h"
 #ifndef NAVE_H
 #define NAVE_H
 
@@ -37,7 +37,9 @@ public:
     void update();
     void draw();
     void setState(int);
-    
+    void disparar(m2D::Texture& texture);
+    int getMunition();
+    void setMunition(int);
 protected:
     Nave ();
     Nave(const Nave& orig);
@@ -49,7 +51,7 @@ private:
     int velocity;
     m2D::Clock animation;
     int animationType;
-    
+    std::vector<Bala*> vectorBalas;
     int state;
     int life;
     int maxLife;

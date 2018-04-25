@@ -25,7 +25,9 @@ Bala::Bala(m2D::Texture &textura) {//CONSTRUCTOR
 
 Bala::Bala(m2D::Texture &textura, int n, float velo) {
     bala.setTexture(textura);
-    bala.setTextureRect(25,0,20,15);
+    bala.setTextureRect(0,0,20,15);
+    bala.setOrigin(20/2,15/2);
+    bala.rotate(270);
     type = n;
     velocidad = velo;
 }
@@ -112,8 +114,8 @@ void Bala::setPos(m2D::Vector2f pos){
     bala.setPosition(pos.getVectorX(),pos.getVectorY());
 }
 
-void Bala::draw(m2D::RenderWindow &window){
-    window.draw(bala);
+void Bala::draw(){
+    m2D::RenderWindow::Instance()->draw(bala);
 }
 
 m2D::Sprite& Bala::returnShape(){

@@ -17,6 +17,7 @@
 #include "Clock.h"
 #include "Sprite.h"
 #include "Vector2f.h"
+#include "Bala.h"
 
 Nave* Nave::pinstance=0;
 Nave* Nave::Instance(){
@@ -34,11 +35,30 @@ Nave::Nave (){
     state=2;
     velocity=5;
     animationType=0;
+    munition = 1; // cambiar en un futuro
 }
 Nave::Nave(const Nave& orig) {
 }
 
 Nave::~Nave() {
+}
+
+void Nave::disparar(m2D::Texture& texture){
+    switch(munition){
+        case 1:
+            Bala * bullet = new Bala(texture, 1, 20.0f);
+            bullet->setPos(m2D::Vector2f(position.getVectorX(), position.getVectorY()));
+            vectorBalas.push_back(bullet);
+        break;
+    }
+}
+
+void Nave::setMunition(int n){
+    munition = n;
+}
+
+int Nave::getMunition(){
+    return munition;
 }
 
 void Nave::setState(int d){
@@ -66,6 +86,9 @@ void Nave::setTexture(m2D::Texture& texture){
 }
 
 void Nave::draw(){
+    for(int i=0; i<vectorBalas.size(); i++){
+        vectorBalas[i]->draw();
+    }
     m2D::RenderWindow::Instance()->draw(sprite);
 }
 
@@ -83,4 +106,10 @@ void Nave::update(){
     }
     //cambiamos posicion
     this->setPosition(position.getVectorX(),position.getVectorY()-velocity);
+    
+    if(!vectorBalas.empty()){
+        for(int i=0; i<vectorBalas.size(); i++){
+            vectorBalas[i]->disparar();
+        }
+    }
 }
