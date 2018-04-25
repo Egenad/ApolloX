@@ -14,19 +14,30 @@
 #ifndef BALA_H
 #define BALA_H
 
+#include "Texture.h"
+#include "Vector2f.h"
+#include "RenderWindow.h"
+#include "Sprite.h"
+
+
 class Bala {
 public:
-    Bala();
+    Bala(m2D::Texture &textura); //constru
     Bala(const Bala& orig);
     virtual ~Bala();
+    int getTipo();
+    void fire(int speed);
+    
+    void setPos(m2D::Vector2f pos);
+    
+    void draw(m2D::RenderWindow &window);//renderiza el alien
+   
+    m2D::Sprite returnShape();//devuelve el shape
 private:
 
-//protected:    
-    //int tipo;
-    //sprite
-    //int danyo
-    //angulo
-    //int velocidad
+protected:    
+    m2D::Sprite bala;
+    int type;
 };
 
 #endif /* BALA_H */
