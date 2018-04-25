@@ -29,9 +29,12 @@ namespace m2D{
         void setTextureRect(int, int, int, int);
         void scale(float, float);
         void setPosition(float, float);
+        void move(float velx, float vely);
+        void rotate(int rot);
         float getPositionX();
         float getPositionY();
         sf::Sprite& getSprite();
+        sf::FloatRect getGlobalBounds();
     private:
         sf::Sprite sprite;
     };

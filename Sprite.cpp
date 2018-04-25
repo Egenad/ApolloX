@@ -55,4 +55,16 @@ namespace m2D{
     float Sprite::getPositionY(){
         return sprite.getPosition().y;
     }
+    
+    sf::FloatRect Sprite::getGlobalBounds(){
+        return sprite.getGlobalBounds();
+    }
+    
+    void Sprite::move(float velx, float vely){
+        sprite.move(velx,vely);
+    }
+    
+    void Sprite::rotate(int rot){
+        sprite.rotate(rot);
+    }
 }
