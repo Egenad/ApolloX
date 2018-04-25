@@ -31,7 +31,7 @@ Nave* Nave::Instance(){
 
 Nave::Nave (){
     position.setVectorX(1535/2);
-    position.setVectorY(830);
+    position.setVectorY(0);
     state=2;
     velocity=5;
     animationType=0;
@@ -81,7 +81,7 @@ void Nave::setTexture(m2D::Texture& texture){
     sprite.setTexture(texture);
     sprite.setOrigin(110/2,139/2);
     sprite.setTextureRect(0,212,110,139);
-    sprite.setPosition(1535/2,790);
+    sprite.setPosition(1535/2,0);
     sprite.scale(0.8,0.8);
 }
 
@@ -107,6 +107,7 @@ void Nave::update(){
     //cambiamos posicion
     this->setPosition(position.getVectorX(),position.getVectorY()-velocity);
     
+    //updateamos balas
     if(!vectorBalas.empty()){
         for(int i=0; i<vectorBalas.size(); i++){
             vectorBalas[i]->disparar();

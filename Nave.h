@@ -22,6 +22,7 @@
 #include "Texture.h"
 #include "RenderWindow.h"
 #include "Bala.h"
+
 #ifndef NAVE_H
 #define NAVE_H
 
@@ -52,6 +53,7 @@ private:
     m2D::Clock animation;
     int animationType;
     std::vector<Bala*> vectorBalas;
+    
     int state;
     int life;
     int maxLife;

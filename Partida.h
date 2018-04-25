@@ -41,7 +41,6 @@ private:
     m2D::Texture bossTexture;
     m2D::Sprite* background;
     int lastBgMoved;
-    int cont;
     m2D::View view;
     //jefe
     

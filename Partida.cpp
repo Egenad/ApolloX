@@ -43,21 +43,20 @@ Partida::Partida() {
     //fondo
     background[0].setOrigin(585/2,510/2);
     background[0].setTextureRect(95,355,585,510);
-    background[0].setPosition(1535/2,860);
+    background[0].setPosition(1535/2,0);
     background[0].scale(1.5,1.5);
     
     background[1].setOrigin(585/2,510/2);
     background[1].setTextureRect(95,355,585,510);
-    background[1].setPosition((1535/2),860-(1.5*510));
+    background[1].setPosition((1535/2),0-(1.5*510));
     background[1].scale(1.5,1.5);
     
     background[2].setOrigin(585/2,510/2);
     background[2].setTextureRect(95,355,585,510);
-    background[2].setPosition((1535/2),860-3*(510));
+    background[2].setPosition((1535/2),0-3*(510));
     background[2].scale(1.5,1.5);
     
     lastBgMoved=0;
-    cont=1;
    
     //nave
     ship = Nave::Instance();
@@ -110,17 +109,13 @@ void Partida::draw(){
 
 void Partida::moveBackground(){
     
-    int center=ship->getPosition().getVectorY()-360;
-    int change=510-(510*cont);
-    
-    if(center==change){
-        cont++;
-        int moveTo=center-(510*2);
-        background[lastBgMoved].setPosition(1535/2,moveTo);
-        lastBgMoved++;
-        if(lastBgMoved==3){
-            lastBgMoved=0;
+    if(ship->getPosition().getVectorY()-360<=background[lastBgMoved].getPositionY()+50){
+        int move=lastBgMoved+1;
+        if(move==3){
+            move=0;
         }
+        background[move].setPosition((1535/2),background[lastBgMoved].getPositionY()-765);
+        lastBgMoved=move;
     }
 }
 
