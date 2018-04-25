@@ -14,17 +14,25 @@
 #ifndef METEORITO_H
 #define METEORITO_H
 
-#include "Sprite.h"
 #include "Vector2f.h"
+#include "Sprite.h"
+#include "Texture.h"
+#include "RenderWindow.h"
 class Meteorito {
 public:
-    Meteorito();
+    Meteorito(m2D::Texture &textura);
     Meteorito(const Meteorito& orig);
-    virtual ~Meteorito();
+    virtual ~Meteorito();  
+    m2D::Sprite& returnShape();
+    void move();
+    void draw();
+    void Update();//PUEDE PETAR
 private:
     //int tipo; 
-    int velocity;
-    int angle;
+    int vely; //velocidad de caida
+    int tipo; //tipo para indicar el tipo de trayectoria
+    int radiomax; //radio maximo del meteorito
+    int radiomin; //radio minimo del meteorito
     m2D::Sprite sprite;
 };
 
