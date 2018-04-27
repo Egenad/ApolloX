@@ -30,14 +30,13 @@ public:
     void setCoord(int x, int y);
     void move();
     void draw();
-    void update();//PUEDE PETAR
+    void update();
 private:
     //int tipo; 
     int vely; //velocidad de caida
     int tipo; //tipo para indicar el tipo de trayectoria
-    int radiomax; //radio maximo del meteorito
-    int radiomin; //radio minimo del meteorito
     int size; //0 peque, 1 grande
+    int rot; //velocidad de rotacion
     m2D::Vector2f position; 
     m2D::Sprite sprite;
 };

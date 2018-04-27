@@ -12,23 +12,28 @@
  */
 
 #include "Meteorito.h"
+#include <iostream>
 
 Meteorito::Meteorito() {
-    srand(time(NULL));
-    //radiomax=80;
-    //radiomin=15;
-    
+    rot=1; //velocidad de rotacion
     vely=6; //velocidad de caida
     float ran1=rand()%100;  //numero aleatorio para radio del meteorito
+    float ran2=rand()%2;
+    if(ran2==0){
+        rot=-1;
+    }
     if(ran1>80){ //grande
+        std::cout << "grande "<<std::endl;
         vely=3;
         size=1;
     }
     else if(ran1>30 && ran1<=80){ //mediano
+        std::cout << "med "<<std::endl;
         vely=5;
         size=2;
     }
     else if(ran1<=30){ //pequeño
+        std::cout << "peq "<<std::endl;
         size=0;
     }
     
@@ -79,13 +84,16 @@ m2D::Sprite& Meteorito::returnShape(){
 void Meteorito::move(){
     if(tipo==1){
         sprite.move(1,vely);
+        sprite.rotate(rot);
     }
     else if(tipo==2){
         sprite.move(0,vely);
+        sprite.rotate(rot);
     }
     
     else if(tipo==3){
         sprite.move(-1,vely);
+        sprite.rotate(rot);
     }
 }
 
@@ -93,7 +101,7 @@ void Meteorito::draw(){
     m2D::RenderWindow::Instance()->draw(sprite);
 }
 
-void Meteorito::update(){ //PUEDE PETAR
+void Meteorito::update(){
     move();
 }
 
