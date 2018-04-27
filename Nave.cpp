@@ -36,6 +36,7 @@ Nave::Nave (){
     velocity=5;
     animationType=0;
     munition = 1; // cambiar en un futuro
+    life=1000;
 }
 Nave::Nave(const Nave& orig) {
 }
@@ -124,4 +125,22 @@ void Nave::moveRight(){
     if(position.getVectorX()<1150){ //1059
         this->setPosition(position.getVectorX()+velocity+5,position.getVectorY());
     }
+}
+
+bool Nave::checkCollMete(Meteorito& meteorito){
+        //ESTAMOS COLISIONANDO 100%
+    bool cola=false;
+    if(sprite.getGlobalBounds().intersects(meteorito.returnShape().getGlobalBounds())){ 
+        //detectar lo de la vida
+        cola=true;
+        
+        life = life - 50;
+        if(life<=0){
+           sprite.setPosition(10000,10000);
+        }
+    }
+}
+
+int Nave::getLife(){
+    return life;
 }

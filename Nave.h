@@ -22,6 +22,7 @@
 #include "Texture.h"
 #include "RenderWindow.h"
 #include "Bala.h"
+#include "Meteorito.h"
 
 #ifndef NAVE_H
 #define NAVE_H
@@ -40,9 +41,11 @@ public:
     void setState(int);
     void disparar(m2D::Texture& texture);
     int getMunition();
+    int getLife();
     void setMunition(int);
     void moveLeft();
     void moveRight();
+    bool checkCollMete(Meteorito& meteorito);
     
 protected:
     Nave ();

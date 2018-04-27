@@ -120,7 +120,9 @@ void Partida::update(){
         m2D::RenderWindow::Instance()->setView(view);
         
         for(int i=0;i<t3;i++){
-            //meteor[i].update();
+           meteor[i].update();
+           ship->checkCollMete(meteor[i]);//comprobamos la colision de los meteorios con la nave
+           std::cout << "vida: " << ship->getLife()<<std::endl;
         }
     
         
@@ -188,6 +190,7 @@ void Partida::Init(int i){
     
     int* enemiesA=new int[t1];
     int* enemiesB=new int[t2];
+    int ran3=rand()%100;
     meteor=new Meteorito[t3];
     
     srand(time(NULL));
