@@ -66,7 +66,14 @@ private:
     int munition;
     int* materials;
     m2D::Vector2f lastMove;
-    bool moving;   
+    
+    int contador_canyon;
+    bool moving;
+    bool canyon;
+    bool explosion;
+    bool bomb_alive;
+    m2D::Clock cb_time;
+    m2D::Clock tiempo_entre_balas;  
 };
 
 #endif /* NAVE_H */

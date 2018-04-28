@@ -34,10 +34,12 @@ public:
     void moverbala(int);
     void setAngulo(float);
     void escalarCanyon();
-    void disparar_canyon(m2D::Vector2f);
+    void disparar_canyon(m2D::Vector2f, int);
     void fire(int speed);   
     void setPos(m2D::Vector2f pos);  
     void draw();//renderiza el alien
+    int getX();
+    int getY();
     m2D::Sprite& returnShape();//devuelve el shape
 private:
 

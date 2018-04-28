@@ -26,16 +26,49 @@ Bala::Bala(m2D::Texture &textura) {//CONSTRUCTOR
 
 Bala::Bala(m2D::Texture &textura, int n, float velo) {
     bala.setTexture(textura);
-    bala.setTextureRect(0,0,20,15);
-    bala.setOrigin(20/2,15/2);
-    bala.rotate(270);
+    if( n == 2 || n == 1 || n == 4){
+        bala.setTextureRect(0,0,20,15);
+        bala.setOrigin(20/2,15/2);
+        bala.rotate(270);
+    }else{
+        if( n == 3){
+            bala.setTextureRect(0,75,180,75);
+            bala.setOrigin(180/2,75/2);
+            bala.rotate(90);
+        }
+        else{
+            bala.setTextureRect(0,75,140,75);
+            bala.setOrigin(180/2,75/2);
+            bala.rotate(90);
+            bala.scale(4.2, 1);
+        }
+    }
+    
+   
     type = n;
     velocidad = velo;
 }
 
 Bala::Bala(m2D::Texture &textura, int n, float angul, float velo) {
     bala.setTexture(textura);
-    bala.setTextureRect(25,0,20,15);
+    bala.setTextureRect(0,0,20,15);
+    bala.setOrigin(20/2,15/2);
+    if(angul==60){
+        bala.rotate(angul+230);
+    }
+    else{
+        if(angul >= 100){
+            if(angul == 100){
+                bala.rotate(angul+150); 
+            }else{
+                bala.rotate(angul+100); 
+            }
+        }
+        else{
+            bala.rotate(angul+200);
+        }
+    }
+    
     type = n;
     angulo = angul;
     velocidad = velo;
@@ -51,12 +84,17 @@ void Bala::fire(int speed){
     bala.move(0,speed); //MOVEMOS LA BALA EN Y negativa (hacia abajo)
 }
 
-void Bala::disparar_canyon(m2D::Vector2f shiposition){
-    bala.move(shiposition.getVectorX(), shiposition.getVectorY());
+void Bala::disparar_canyon(m2D::Vector2f shiposition, int n){
+    if(n == 3){
+        bala.setPosition(shiposition.getVectorX(), shiposition.getVectorY()-120);
+    }
+    else{
+        bala.setPosition(shiposition.getVectorX(), shiposition.getVectorY()-420);
+    }
 }
 
 void Bala::escalarCanyon(){
-    bala.scale(0.5,1);
+    bala.scale(1,0.5);
 }
 
 void Bala::setAngulo(float n){
@@ -73,8 +111,8 @@ void Bala::disparar_bomba(int n){
             bala.move(0, -velocidad);
         break;
         case 2:
-            bala.scale(8, 4);
-            bala.move(-20,0);
+            bala.setTextureRect(620,0,70,70);
+            bala.setOrigin(70/2, 70/2);
         break;
     }
 }
@@ -125,4 +163,12 @@ m2D::Sprite& Bala::returnShape(){
 
 int Bala::getTipo(){
     return type;
+}
+
+int Bala::getX(){
+    return bala.getPositionX();
+}
+
+int Bala::getY(){
+    return bala.getPositionY();
 }
