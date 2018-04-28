@@ -12,25 +12,30 @@
  */
 
 #include "Alien.h"
+#include <iostream>
 
 
 
-Alien::Alien(m2D::Texture &textura, int tip) {
-        type=tip; //tipo de movimiento
-        sprite.setTexture(textura);
-        sprite.setTextureRect(280,70, 100, 110);
-        position.setVectorX(rand()%(600-100));
-        position.setVectorY(-50);
+Alien::Alien() {
+        type=(rand()%3)+1; //tipo de movimiento
+        //sprite.setTexture(textura);
+       // sprite.setTextureRect(280,70, 100, 110);
+       // position.setVectorX(rand()%(600-100));
+       // position.setVectorY(-50);
     if(type==1){
         grados=90.0f;
+        std::cout<< "soy 1" <<std::endl;
     }
     else if(type==2){
         grados=180.0f;
+        std::cout<< "soy 2" <<std::endl;
+        
     }
     else if(type==3){
         grados=135.0f;
+        std::cout<< "soy 3" <<std::endl;
     }
-        sprite.setPosition(position.getVectorX(),position.getVectorY());
+        //sprite.setPosition(position.getVectorX(),position.getVectorY());
     
 
 }
@@ -51,8 +56,8 @@ void Alien::setPos(int x, int y){
      return sprite.getPositionY();
         
 }
-void Alien::draw(m2D::RenderWindow &window){
-    window.draw(sprite);
+void Alien::draw(){
+    m2D::RenderWindow::Instance()->draw(sprite);//para dibujar el sprite (SINGLETON)
 }
 
 m2D::Sprite& Alien::getShape(){
@@ -99,10 +104,14 @@ int Alien::getTipo(){
 }
 
 void Alien::Update(){ //UPDATE DE ALIEN
-    dispara(texture);
-    dibujaBalas();
+    //dispara(texture);
+    //dibujaBalas();
     sprite.move(sin(grados),1);
     grados=grados+0.006f;
-    m2D::RenderWindow::Instance()->draw(sprite);//para dibujar el sprite (SINGLETON)
+}
+
+void Alien::setTexture(m2D::Texture& texture){
+        sprite.setTexture(texture);
+        sprite.setTextureRect(280,70, 100, 110);
 }
 

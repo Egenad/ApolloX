@@ -20,6 +20,7 @@
 #include "Texture.h"
 #include "Nave.h"
 #include "Meteorito.h"
+#include "Alien.h"
 
 #ifndef PARTIDA_H
 #define PARTIDA_H
@@ -53,6 +54,7 @@ private:
     //obstaculos
     int t3;
     Meteorito* meteor;
+    Alien* aliens;
     //nave
     Nave* ship;
     //vista

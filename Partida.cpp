@@ -119,10 +119,14 @@ void Partida::update(){
         view.setCenter(1535/2,ship->getPosition().getVectorY()-360);
         m2D::RenderWindow::Instance()->setView(view);
         
-        for(int i=0;i<t3;i++){
+        for(int i=0;i<t3;i++){//UPDATE METEORITO
            meteor[i].update();
            ship->checkCollMete(meteor[i]);//comprobamos la colision de los meteorios con la nave
            std::cout << "vida: " << ship->getLife()<<std::endl;
+        }
+        
+        for(int i=0;i<t1;i++){
+            aliens[i].Update();//UPDATE ALIENS
         }
     
         
@@ -140,6 +144,9 @@ void Partida::draw(){
     ship->draw();
     for(int i=0;i<t3;i++){
         meteor[i].draw();
+    }
+    for(int i=0;i<t1;i++){
+        aliens[i].draw();
     }
     
 }
@@ -188,22 +195,24 @@ void Partida::Init(int i){
     int cont2=0;
     int cont3=0;
     
-    int* enemiesA=new int[t1];
     int* enemiesB=new int[t2];
     int ran3=rand()%100;
-    meteor=new Meteorito[t3];
-    
+    meteor=new Meteorito[t3]; //meteoritos
+    aliens=new Alien[t1]; //aliens
     srand(time(NULL));
     for(int i=0;i<totalEnemies;i++){
         int a=rand() % 9;
         if(a>=0&&a<=5){
             //creamos enemigo A
             if(cont1<t1){
-                
-                enemiesA[cont1]=i;
+                int ran2=(rand()%3)+1;
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                aliens[cont1].setTexture(texture);
+                aliens[cont1].setPos(x1,-y1);
                 cont1++;
             }else if(cont2<t2){
-                
                 enemiesB[cont2]=i;
                 cont2++;
             }else if(cont3<t3){
@@ -230,8 +239,12 @@ void Partida::Init(int i){
                 cont3++;
                 
             }else if(cont1<t1){
-                
-                enemiesA[cont1]=i;
+                int ran2=(rand()%3)+1;
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                //aliens[cont1]=new Alien(texture,ran2);
+                aliens[cont1].setPos(x1,-y1);
                 cont1++;
             }
         }else{
@@ -245,8 +258,12 @@ void Partida::Init(int i){
                 cont3++;
                 
             }else if(cont1<t1){
-                
-                enemiesA[cont1]=i;
+                int ran2=(rand()%3)+1;
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                //aliens[cont1]=new Alien(texture,ran2);
+                aliens[cont1].setPos(x1,-y1);
                 cont1++;
             }else if(cont2<t2){
                 

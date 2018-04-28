@@ -27,7 +27,7 @@
 
 class Alien {
 public:
-    Alien(m2D::Texture &textura, int tipo);
+    Alien();
     Alien(const Alien& orig);
     virtual ~Alien();
     
@@ -36,14 +36,14 @@ public:
     
    void setPos(int x, int y);
     
-    void draw(m2D::RenderWindow &window);
+    void draw();
     
     void dispara(m2D::Texture &textura);
     
     void dibujaBalas();
     
     void Update();//EL que llamamos en NIVEL
-    
+    void setTexture(m2D::Texture& texture);
     void move(float grados);
     m2D::Vector2f getPos();
     
