@@ -28,6 +28,7 @@
 class Alien {
 public:
     Alien();
+    
     Alien(const Alien& orig);
     virtual ~Alien();
     
