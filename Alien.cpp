@@ -13,15 +13,14 @@
 
 #include "Alien.h"
 
-
-
 Alien::Alien() {
-        type=(rand()%3)+1; //tipo de movimiento
+    type=(rand()%3)+1; //tipo de movimiento
+    state=0;
         //sprite.setTexture(textura);
        // sprite.setTextureRect(280,70, 100, 110);
        // position.setVectorX(rand()%(600-100));
        // position.setVectorY(-50);
-        life=1;
+    life=1;
     if(type==1){
         grados=90.0f;
     }
@@ -43,7 +42,8 @@ Alien::~Alien() {
 }
 
 void Alien::setPos(int x, int y){
-    sprite.setPosition(x,y);
+    position.setVectorX(x);
+    position.setVectorY(y);
 }
  int Alien::getX(){
      return sprite.getPositionX();
@@ -53,14 +53,14 @@ void Alien::setPos(int x, int y){
         
 }
 void Alien::draw(){
-    m2D::RenderWindow::Instance()->draw(sprite);//para dibujar el sprite (SINGLETON)
+    m2D::RenderWindow::Instance()->draw(sprite); //para dibujar el sprite (SINGLETON)
 }
 
 m2D::Sprite& Alien::getShape(){
     return sprite;
 }
 
-m2D::Vector2f Alien::getPos(){
+m2D::Vector2f& Alien::getPos(){
     return position;
 }
 
@@ -102,11 +102,15 @@ int Alien::getTipo(){
 void Alien::Update(){ //UPDATE DE ALIEN
     sprite.move(sin(grados),1);
     grados=grados+0.006f;
+    //updateamos la pos
+    this->setPos(sprite.getPositionX(),sprite.getPositionY());
 }
 
 void Alien::setTexture(m2D::Texture& texture){
-        sprite.setTexture(texture);
-        sprite.setTextureRect(280,70, 100, 110);
+    sprite.setTexture(texture);
+    sprite.setTextureRect(280,70, 100, 110);
+    sprite.setOrigin(100/2,110/2);
+    sprite.setPosition(position.getVectorX(),position.getVectorY());
 }
 
 void Alien::quitarVida(){

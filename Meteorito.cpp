@@ -106,3 +106,7 @@ void Meteorito::update(){
     move();
 }
 
+m2D::Vector2f& Meteorito::getCoord(){
+    return position;
+}
+

@@ -28,6 +28,7 @@ public:
     m2D::Sprite& returnShape();
     void setTexture(m2D::Texture& texture);
     void setCoord(int x, int y);
+    m2D::Vector2f& getCoord();
     void move();
     void draw();
     void update();

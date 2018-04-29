@@ -36,10 +36,9 @@ public:
     int getX();
     int getY();
     
-   void setPos(int x, int y);
+    void setPos(int x, int y);
     
     void draw();
-    
     
     void dispara(m2D::Texture &textura);
     
@@ -49,7 +48,7 @@ public:
     void setTexture(m2D::Texture& texture);
     void move(float grados);
     int getVida();
-    m2D::Vector2f getPos();
+    m2D::Vector2f& getPos();
     
     m2D::Sprite& getShape();
     
@@ -62,7 +61,7 @@ private:
     m2D::Vector2f position;
     std::vector<Bala*> balas;//vector balas
     float grados; //grados de movimiento
-    int state;
+    int state; //0 vivo, 1 muerto
     int attack;
     int bullet; //tipo de bala
     m2D::Clock dis;
