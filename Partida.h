@@ -34,6 +34,7 @@ public:
     void draw();
     void moveBackground();
     void Init(int i);
+    void Infinite();
     float getCoordViewX();
     float getCoordViewY();
     void setViewtoOrigin();
@@ -71,6 +72,15 @@ private:
     int length;
     //modo
     int state; //0 travesia, 1 jefe
+    int mode;//0 normal, 1 infinite
+    //materiales
+    int m1;
+    int m2;
+    int m3;
+    //contador infinito
+    int lvlI;
+    //longitud actual infinito
+    int path;
     
 };
 

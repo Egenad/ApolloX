@@ -17,6 +17,7 @@
 #include "Event.h"
 #include "Pausa.h"
 #include "Missions.h"
+#include "Partida.h"
 #include <iostream>
 
 Menu* Menu::pinstance=0;
@@ -45,6 +46,8 @@ void Menu::handleInput(){
                 //tienda
             }else if(seleccionado==2){
                 //infinito
+                Game::Instance()->setState(Partida::Instance());
+                Partida::Instance()->Infinite();
             }else if(seleccionado==1){
                 //misiones
                 Game::Instance()->setState(Missions::Instance());

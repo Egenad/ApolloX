@@ -118,7 +118,11 @@ void Partida::update(){
         //updateamos el player
         ship->update();
         if(ship->getPosition().getVectorY()<=(-length-860)){
-            state=1;
+            if(mode==0){
+               state=1; 
+            }else{
+                this->Infinite();
+            }
         }
         
         //updateamos la vista
@@ -191,6 +195,8 @@ void Partida::moveBackground(){
 }
 
 void Partida::Init(int i){
+    
+    mode=0;
     
     FactoriaNivel* fLvl = FactoriaNivel::Instance();
 
@@ -297,6 +303,212 @@ void Partida::Init(int i){
                 
                 enemiesB[cont2]=i;
                 cont2++;
+            }
+        }
+    }
+    
+}
+void Partida::Infinite(){
+    
+    mode=1; //modo infinito
+    FactoriaNivel* fLvl = FactoriaNivel::Instance();
+    
+    if(ship->getPosition().getVectorY()==0){
+        //Empieza
+        lvlI=1;
+        std::cout<<"Empieza modo infinito"<<std::endl;
+        
+        fLvl->readLevel(lvlI);
+        
+        //Leer xml
+        const char* p = fLvl->getPath();
+        std::stringstream ss;
+        ss << p;
+        ss>>path;
+        std::cout<<"Path: "<< path<<std::endl;
+        
+        length=path;
+        
+
+        const char* enemy1 = fLvl->getAlien1();
+        std::stringstream ss2;
+        ss2 << enemy1;
+        ss2>>t1;
+        std::cout<<"Enemigo1: "<< t1<<std::endl;
+
+        const char* enemy2 = fLvl->getAlien2();
+        std::stringstream ss3;
+        ss3 << enemy2;
+        ss3>>t2;
+        std::cout<<"Enemigo2: "<< t2<<std::endl;
+
+        const char* m = fLvl->getMeteor();
+        std::stringstream ss4;
+        ss4 << m;
+        ss4>>t3;
+        std::cout<<"Enemigo3: "<< t3<<std::endl;
+
+        int totalEnemies=t3+t2+t1;
+        std::cout<<"Total enemigos: "<< totalEnemies<<std::endl;
+
+    }else{
+        std::cout<<"Continuamos modo infinito"<< lvlI << std::endl;
+        length=length+path;
+    }
+    
+    
+    
+    int totalEnemies = t3+t2+t1;
+    int cont1=0;
+    int cont2=0;
+    int cont3=0;
+    
+    int* enemiesB=new int[t2];
+    int ran3=rand()%100;
+    meteor=new Meteorito[t3]; //meteoritos
+    aliens=new Alien[t1]; //aliens
+    
+    int totalmaterials=m3+m2+m1;
+    
+    int cont4=0;
+    int cont5=0;
+    int cont6=0;
+    
+    int* materialA=new int[m1];
+    int* materialB= new int[m2];
+    int* materialC = new int[m3];
+    
+    //Enemigos
+    srand(time(NULL));
+    for(int i=0;i<totalEnemies;i++){
+        int a=rand() % 9;
+        if(a>=0&&a<=5){
+            //creamos enemigo A
+            if(cont1<t1){
+                
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                aliens[cont1].setPos(x1,-y1-860);
+                aliens[cont1].setTexture(texture);
+                cont1++;
+                
+            }else if(cont2<t2){
+                enemiesB[cont2]=i;
+                cont2++;
+            }else if(cont3<t3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(length/totalEnemies)*i;
+                meteor[cont3].setCoord(x,-y-860);
+                meteor[cont3].setTexture(texture);
+                cont3++;
+            }
+            
+        }else if(a>=6&&a<=7){
+            //creamos meteorito
+            if(cont2<t2){
+                
+                enemiesB[cont2]=i;
+                cont2++;
+            }else if(cont3<t3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(length/totalEnemies)*i;
+                meteor[cont3].setCoord(x,-y-860);
+                meteor[cont3].setTexture(texture);
+                cont3++;
+                
+            }else if(cont1<t1){
+                
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                aliens[cont1].setPos(x1,-y1-860);
+                aliens[cont1].setTexture(texture);
+                cont1++;
+            }
+        }else{
+            //creamos enemigo B
+            if(cont3<t3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(length/totalEnemies)*i;
+                meteor[cont3].setCoord(x,-y-860);
+                meteor[cont3].setTexture(texture);
+                cont3++;
+                
+            }else if(cont1<t1){
+                
+                int x1=rand() % 585;
+                x1=x1+475;
+                int y1 =(length/totalEnemies)*i;
+                aliens[cont1].setPos(x1,-y1-860);
+                aliens[cont1].setTexture(texture);
+                cont1++;
+            }else if(cont2<t2){
+                
+                enemiesB[cont2]=i;
+                cont2++;
+            }
+        }
+    }
+    
+    //materiales
+    srand(time(NULL));
+    for(int i=0;i<totalmaterials;i++){
+        int a=rand() % 9;
+        if(a>=0&&a<=5){
+            //creamos material A
+            if(cont4<m1){
+                
+                materialA[cont4]=i;
+                cont4++;
+            }else if(cont5<m2){
+                
+                materialB[cont5]=i;
+                cont5++;
+            }else if(cont6<m3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(path/totalmaterials)*i - ship->getPosition().getVectorY();
+                materialC[cont6]=i;
+                cont6++;
+            }
+            
+        }else if(a>=6&&a<=7){
+            //creamos meteorito
+            if(cont5<m2){
+                
+                materialB[cont5]=i;
+                cont5++;
+            }else if(cont6<m3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(path/totalmaterials)*i - ship->getPosition().getVectorY();
+                materialC[cont6]=i;
+                cont6++;
+            }else if(cont4<m1){
+                
+                materialA[cont4]=i;
+                cont4++;
+            }
+        }else{
+            //creamos enemigo B
+            if(cont6<m3){
+                int x=rand() % 585;
+                x=x+475;
+                int y =(path/totalmaterials)*i - ship->getPosition().getVectorY();
+                materialC[cont6]=i;
+                cont6++;
+            }else if(cont4<m1){
+                
+                materialA[cont4]=i;
+                cont4++;
+            }else if(cont5<m2){
+                
+                materialB[cont5]=i;
+                cont5++;
             }
         }
     }
