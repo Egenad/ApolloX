@@ -36,4 +36,8 @@ namespace m2D{
     sf::View& View::getView(){
         return view;
     }
+    
+    m2D::Vector2f View::getCenter(){
+        return m2D::Vector2f(view.getCenter().x,view.getCenter().y);
+    }
 }

@@ -19,6 +19,8 @@
 #include "Sprite.h"
 #include "Estado.h"
 #include "Texture.h"
+#include "Font.h"
+#include "Text.h"
 
 class Pausa : public Estado{
 public:
@@ -26,12 +28,18 @@ public:
     void handleInput();
     void update();
     void draw();
+    void setCenter();
+    void up();
+    void down();
 protected:
     Pausa();
     Pausa(const Pausa& orig);
     virtual ~Pausa();
 private:
-    m2D::Sprite sprite;
+    int seleccionado;
+    m2D::Font font;
+    m2D::Text text;
+    m2D::Sprite* sprites;
     m2D::Texture texture;
     static Pausa* pinstance;
 

@@ -12,6 +12,8 @@
  */
 #include <iostream>
 
+#include "Game.h"
+#include "Pausa.h"
 #include "Partida.h"
 #include "Sprite.h"
 #include "Estado.h"
@@ -99,6 +101,10 @@ void Partida::handleInput(){
                     if(state==0){
                         ship->moveLeft();
                     }
+                break;
+                
+                case sf::Keyboard::Escape:
+                    Game::Instance()->setState(Pausa::Instance());
                 break;
             }
         }
@@ -277,6 +283,18 @@ void Partida::Init(int i){
         }
     }
     
+}
+
+float Partida::getCoordViewX(){
+    return view.getCenter().getVectorX();
+}
+float Partida::getCoordViewY(){
+    return view.getCenter().getVectorY();
+}
+
+void Partida::setViewtoOrigin(){
+    view.setCenter(1535/2,860/2);
+    m2D::RenderWindow::Instance()->setView(view);
 }
 
 Partida::Partida(const Partida& orig) {

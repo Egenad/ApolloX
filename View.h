@@ -13,8 +13,10 @@
 
 #ifndef VIEW_H
 #define VIEW_H
+
 #include "Motor2D.h"
 #include "Vector2f.h"
+
 namespace m2D{
 class View : public Motor2D{
 public:

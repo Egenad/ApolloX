@@ -60,5 +60,9 @@ namespace m2D{
     void RenderWindow::draw(m2D::Sprite& sprite){
         window.draw(sprite.getSprite());
     }
+    void RenderWindow::drawT(m2D::Text& text){
+        
+        window.draw(text.getText());
+    }
 }
 

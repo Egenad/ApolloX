@@ -22,7 +22,7 @@ namespace m2D{
     Text::~Text() {
     }
     void Text::setFont(m2D::Font& fuente){
-        text.setFont(fuente);
+        text.setFont(fuente.getFont());
     }
     void Text::setString(std::string cadena){
         text.setString(cadena);

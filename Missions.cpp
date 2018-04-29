@@ -172,7 +172,7 @@ void Missions::up(){
 }
 
 void Missions::update(){
-    
+    Partida::Instance()->setViewtoOrigin();
 }
 
 void Missions::draw(){

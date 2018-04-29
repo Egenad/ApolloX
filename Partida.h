@@ -34,6 +34,10 @@ public:
     void draw();
     void moveBackground();
     void Init(int i);
+    float getCoordViewX();
+    float getCoordViewY();
+    void setViewtoOrigin();
+    
 protected:
     Partida();
     Partida(const Partida& orig);
@@ -51,11 +55,10 @@ private:
     //enemigos
     int t2;
     int t1;
-    
+    Alien* aliens;
     //obstaculos
     int t3;
     Meteorito* meteor;
-    Alien* aliens;
     //nave
     Nave* ship;
     //vista
