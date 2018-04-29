@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=ApolloX-beta0.24
+PROJECTNAME=ApolloX-beta0.3
 
 # Active Configuration
 DEFAULTCONF=Debug

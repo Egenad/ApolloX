@@ -12,6 +12,7 @@
       <itemPath>Estado.h</itemPath>
       <itemPath>Event.h</itemPath>
       <itemPath>FactoriaNivel.h</itemPath>
+      <itemPath>Font.h</itemPath>
       <itemPath>Game.h</itemPath>
       <itemPath>Jefe.h</itemPath>
       <itemPath>Material.h</itemPath>
@@ -21,13 +22,13 @@
       <itemPath>Motor2D.h</itemPath>
       <itemPath>NPC.h</itemPath>
       <itemPath>Nave.h</itemPath>
-      <itemPath>Nivel.h</itemPath>
       <itemPath>Obstaculo.h</itemPath>
       <itemPath>Partida.h</itemPath>
       <itemPath>Pausa.h</itemPath>
       <itemPath>RenderWindow.h</itemPath>
       <itemPath>Resultado.h</itemPath>
       <itemPath>Sprite.h</itemPath>
+      <itemPath>Text.h</itemPath>
       <itemPath>Texture.h</itemPath>
       <itemPath>Tienda.h</itemPath>
       <itemPath>Vector2f.h</itemPath>
@@ -48,6 +49,7 @@
       <itemPath>Escudo.cpp</itemPath>
       <itemPath>Event.cpp</itemPath>
       <itemPath>FactoriaNivel.cpp</itemPath>
+      <itemPath>Font.cpp</itemPath>
       <itemPath>Game.cpp</itemPath>
       <itemPath>Jefe.cpp</itemPath>
       <itemPath>Material.cpp</itemPath>
@@ -56,20 +58,20 @@
       <itemPath>Missions.cpp</itemPath>
       <itemPath>Motor2D.cpp</itemPath>
       <itemPath>Nave.cpp</itemPath>
-      <itemPath>Nivel.cpp</itemPath>
       <itemPath>Obstaculo.cpp</itemPath>
       <itemPath>Partida.cpp</itemPath>
       <itemPath>Pausa.cpp</itemPath>
       <itemPath>RenderWindow.cpp</itemPath>
       <itemPath>Resultado.cpp</itemPath>
       <itemPath>Sprite.cpp</itemPath>
+      <itemPath>Text.cpp</itemPath>
       <itemPath>Texture.cpp</itemPath>
       <itemPath>Tienda.cpp</itemPath>
       <itemPath>Vector2f.cpp</itemPath>
       <itemPath>View.cpp</itemPath>
       <itemPath>main.cc</itemPath>
     </logicalFolder>
-    <logicalFolder name="f1" displayName="tinyxml" projectFiles="true" kind="ROOT">
+    <logicalFolder name="f1" displayName="tinyxml" projectFiles="true">
       <itemPath>resources/tinyxml/tinystr.cpp</itemPath>
       <itemPath>resources/tinyxml/tinystr.h</itemPath>
       <itemPath>resources/tinyxml/tinyxml.cpp</itemPath>
@@ -144,6 +146,10 @@
       </item>
       <item path="FactoriaNivel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Font.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Font.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
@@ -178,10 +184,6 @@
       </item>
       <item path="Nave.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Nivel.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Obstaculo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Obstaculo.h" ex="false" tool="3" flavor2="0">
@@ -205,6 +207,10 @@
       <item path="Sprite.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Text.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Text.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -292,6 +298,10 @@
       </item>
       <item path="FactoriaNivel.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Font.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Font.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Game.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Game.h" ex="false" tool="3" flavor2="0">
@@ -326,10 +336,6 @@
       </item>
       <item path="Nave.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="Nivel.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="Nivel.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="Obstaculo.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Obstaculo.h" ex="false" tool="3" flavor2="0">
@@ -353,6 +359,10 @@
       <item path="Sprite.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Sprite.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Text.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Text.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Texture.cpp" ex="false" tool="1" flavor2="0">
       </item>

@@ -42,6 +42,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Escudo.o \
 	${OBJECTDIR}/Event.o \
 	${OBJECTDIR}/FactoriaNivel.o \
+	${OBJECTDIR}/Font.o \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Jefe.o \
 	${OBJECTDIR}/Material.o \
@@ -50,13 +51,13 @@ OBJECTFILES= \
 	${OBJECTDIR}/Missions.o \
 	${OBJECTDIR}/Motor2D.o \
 	${OBJECTDIR}/Nave.o \
-	${OBJECTDIR}/Nivel.o \
 	${OBJECTDIR}/Obstaculo.o \
 	${OBJECTDIR}/Partida.o \
 	${OBJECTDIR}/Pausa.o \
 	${OBJECTDIR}/RenderWindow.o \
 	${OBJECTDIR}/Resultado.o \
 	${OBJECTDIR}/Sprite.o \
+	${OBJECTDIR}/Text.o \
 	${OBJECTDIR}/Texture.o \
 	${OBJECTDIR}/Tienda.o \
 	${OBJECTDIR}/Vector2f.o \
@@ -86,17 +87,17 @@ LDLIBSOPTIONS=-L/usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/libsfml-grap
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24: /usr/lib/x86_64-linux-gnu/libsfml-system.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3: /usr/lib/x86_64-linux-gnu/libsfml-system.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24: /usr/lib/x86_64-linux-gnu/libsfml-window.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Agente.o: Agente.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -132,6 +133,11 @@ ${OBJECTDIR}/FactoriaNivel.o: FactoriaNivel.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/FactoriaNivel.o FactoriaNivel.cpp
+
+${OBJECTDIR}/Font.o: Font.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Font.o Font.cpp
 
 ${OBJECTDIR}/Game.o: Game.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -173,11 +179,6 @@ ${OBJECTDIR}/Nave.o: Nave.cpp
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Nave.o Nave.cpp
 
-${OBJECTDIR}/Nivel.o: Nivel.cpp
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Nivel.o Nivel.cpp
-
 ${OBJECTDIR}/Obstaculo.o: Obstaculo.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -207,6 +208,11 @@ ${OBJECTDIR}/Sprite.o: Sprite.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Sprite.o Sprite.cpp
+
+${OBJECTDIR}/Text.o: Text.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -I/usr/include/SFML -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Text.o Text.cpp
 
 ${OBJECTDIR}/Texture.o: Texture.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -260,7 +266,7 @@ ${OBJECTDIR}/resources/tinyxml/tinyxmlparser.o: resources/tinyxml/tinyxmlparser.
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-window.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-graphics.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-system.so
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.24
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-beta0.3
 
 # Subprojects
 .clean-subprojects:
