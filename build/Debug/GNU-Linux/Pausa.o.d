@@ -1,6 +1,7 @@
 build/Debug/GNU-Linux/Pausa.o: Pausa.cpp Pausa.h Sprite.h Motor2D.h \
- Texture.h Estado.h Menu.h RenderWindow.h Event.h View.h Vector2f.h \
- Game.h
+ Texture.h Estado.h Font.h Text.h Menu.h RenderWindow.h Event.h View.h \
+ Vector2f.h Game.h Partida.h Nave.h Clock.h Bala.h Meteorito.h NPC.h \
+ Alien.h Missions.h
 
 Pausa.h:
 
@@ -11,6 +12,10 @@ Motor2D.h:
 Texture.h:
 
 Estado.h:
+
+Font.h:
+
+Text.h:
 
 Menu.h:
 
@@ -23,3 +28,19 @@ View.h:
 Vector2f.h:
 
 Game.h:
+
+Partida.h:
+
+Nave.h:
+
+Clock.h:
+
+Bala.h:
+
+Meteorito.h:
+
+NPC.h:
+
+Alien.h:
+
+Missions.h:
