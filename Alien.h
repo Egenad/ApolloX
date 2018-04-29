@@ -12,6 +12,7 @@
  */
 
 
+
 #ifndef ALIEN_H
 #define ALIEN_H
 
@@ -22,13 +23,13 @@
 #include "Texture.h"
 #include "RenderWindow.h"
 #include "Nave.h"
-#include <math.h>
 #include "NPC.h"
+#include <math.h>
+
 
 class Alien {
 public:
     Alien();
-    
     Alien(const Alien& orig);
     virtual ~Alien();
     
@@ -39,13 +40,15 @@ public:
     
     void draw();
     
+    
     void dispara(m2D::Texture &textura);
     
     void dibujaBalas();
-    
+    void quitarVida();
     void Update();//EL que llamamos en NIVEL
     void setTexture(m2D::Texture& texture);
     void move(float grados);
+    int getVida();
     m2D::Vector2f getPos();
     
     m2D::Sprite& getShape();
@@ -53,7 +56,7 @@ public:
     int getTipo();
 private:
     int type;
-    
+    int life;
     m2D::Sprite sprite;
     m2D::Texture texture;
     m2D::Vector2f position;

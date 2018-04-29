@@ -32,6 +32,7 @@ public:
     void draw();
     void update();
 private:
+    
     //int tipo; 
     int vely; //velocidad de caida
     int tipo; //tipo para indicar el tipo de trayectoria

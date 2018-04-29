@@ -122,13 +122,17 @@ void Partida::update(){
         for(int i=0;i<t3;i++){//UPDATE METEORITO
            meteor[i].update();
            ship->checkCollMete(meteor[i]);//comprobamos la colision de los meteorios con la nave
-           std::cout << "vida: " << ship->getLife()<<std::endl;
+           //std::cout << "vida: " << ship->getLife()<<std::endl;
         }
+        
         
         for(int i=0;i<t1;i++){
             aliens[i].Update();//UPDATE ALIENS
+            aliens[i].dibujaBalas();
+            aliens[i].dispara(texture);
+            ship->golpea(aliens[i].getShape()); //si mata al alien
         }
-    
+        
         
     }else{
         //updateamos de distinta forma

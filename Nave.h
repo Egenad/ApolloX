@@ -23,6 +23,7 @@
 #include "RenderWindow.h"
 #include "Bala.h"
 #include "Meteorito.h"
+#include "Alien.h"
 
 #ifndef NAVE_H
 #define NAVE_H
@@ -45,7 +46,9 @@ public:
     void setMunition(int);
     void moveLeft();
     void moveRight();
+    void golpea(m2D::Sprite& alien);
     bool checkCollMete(Meteorito& meteorito);
+    bool checkColl(Bala& bullet);
     
 protected:
     Nave ();
@@ -66,7 +69,14 @@ private:
     int munition;
     int* materials;
     m2D::Vector2f lastMove;
-    bool moving;   
+    
+    int contador_canyon;
+    bool moving;
+    bool canyon;
+    bool explosion;
+    bool bomb_alive;
+    m2D::Clock cb_time;
+    m2D::Clock tiempo_entre_balas;  
 };
 
 #endif /* NAVE_H */

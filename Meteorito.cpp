@@ -20,6 +20,7 @@ Meteorito::Meteorito() {
     float ran1=rand()%100;  //numero aleatorio para radio del meteorito
     float ran2=rand()%2;
     if(ran2==0){
+        
         rot=-1;
     }
     if(ran1>80){ //grande

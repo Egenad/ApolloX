@@ -13,7 +13,6 @@
 
 #ifndef BALA_H
 #define BALA_H
-
 #include "Texture.h"
 #include "Vector2f.h"
 #include "RenderWindow.h"

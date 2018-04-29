@@ -12,7 +12,6 @@
  */
 
 #include "Alien.h"
-#include <iostream>
 
 
 
@@ -22,18 +21,15 @@ Alien::Alien() {
        // sprite.setTextureRect(280,70, 100, 110);
        // position.setVectorX(rand()%(600-100));
        // position.setVectorY(-50);
+        life=1;
     if(type==1){
         grados=90.0f;
-        std::cout<< "soy 1" <<std::endl;
     }
     else if(type==2){
         grados=180.0f;
-        std::cout<< "soy 2" <<std::endl;
-        
     }
     else if(type==3){
         grados=135.0f;
-        std::cout<< "soy 3" <<std::endl;
     }
         //sprite.setPosition(position.getVectorX(),position.getVectorY());
     
@@ -86,7 +82,7 @@ void Alien::dibujaBalas(){
         
         for(int k=0;k< balas.size();k++){
             bool cola=false;
-            //cola=Nave::Instance.checkColl(*balas[k]); //LE PASAMOS LA BALA CON LA QUE COLOSIONA
+            cola=Nave::Instance()->checkColl(*balas[k]); //LE PASAMOS LA BALA CON LA QUE COLOSIONA
             if(cola){
                 delete balas[k];
                 balas.erase(balas.begin()+k);
@@ -104,8 +100,6 @@ int Alien::getTipo(){
 }
 
 void Alien::Update(){ //UPDATE DE ALIEN
-    //dispara(texture);
-    //dibujaBalas();
     sprite.move(sin(grados),1);
     grados=grados+0.006f;
 }
@@ -113,5 +107,18 @@ void Alien::Update(){ //UPDATE DE ALIEN
 void Alien::setTexture(m2D::Texture& texture){
         sprite.setTexture(texture);
         sprite.setTextureRect(280,70, 100, 110);
+}
+
+void Alien::quitarVida(){
+    //detectar lo de la vida
+    life = life - 50;
+    if(life<=0){
+        sprite.setPosition(10000,10000);
+    }
+    std::cout <<"DAÑOOOOO!!" <<std::endl;
+}
+
+int Alien::getVida(){
+    return life;
 }
 
