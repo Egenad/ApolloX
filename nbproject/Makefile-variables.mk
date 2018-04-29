@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-Linux
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-Linux
-CND_ARTIFACT_NAME_Debug=apollox-beta
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/apollox-beta
+CND_ARTIFACT_NAME_Debug=apollox-beta0.24
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-Linux/apollox-beta0.24
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-Linux/package
-CND_PACKAGE_NAME_Debug=apollox-beta.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/apollox-beta.tar
+CND_PACKAGE_NAME_Debug=apollox-beta0.24.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-Linux/package/apollox-beta0.24.tar
 # Release configuration
 CND_PLATFORM_Release=GNU-Linux
 CND_ARTIFACT_DIR_Release=dist/Release/GNU-Linux
-CND_ARTIFACT_NAME_Release=apollox-beta
-CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/apollox-beta
+CND_ARTIFACT_NAME_Release=apollox-beta0.24
+CND_ARTIFACT_PATH_Release=dist/Release/GNU-Linux/apollox-beta0.24
 CND_PACKAGE_DIR_Release=dist/Release/GNU-Linux/package
-CND_PACKAGE_NAME_Release=apollox-beta.tar
-CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/apollox-beta.tar
+CND_PACKAGE_NAME_Release=apollox-beta0.24.tar
+CND_PACKAGE_PATH_Release=dist/Release/GNU-Linux/package/apollox-beta0.24.tar
 #
 # include compiler specific variables
 #
