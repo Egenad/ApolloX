@@ -101,7 +101,7 @@ int Alien::getTipo(){
 
 void Alien::Update(){ //UPDATE DE ALIEN
     sprite.move(sin(grados),1);
-    grados=grados+0.006f;
+    grados=grados+0.01f;
     //updateamos la pos
     this->setPos(sprite.getPositionX(),sprite.getPositionY());
 }
