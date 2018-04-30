@@ -12,6 +12,7 @@
  */
 #include <iostream>
 
+
 #include "Game.h"
 #include "Pausa.h"
 #include "Partida.h"
@@ -187,7 +188,6 @@ void Partida::update(){
            if((view.getCenter().getVectorY()+420)>meteor[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<meteor[i].getCoord().getVectorY()){
                 meteor[i].update();
                 ship->checkCollMete(meteor[i]);//comprobamos la colision de los meteorios con la nave
-                //std::cout << "vida: " << ship->getLife()<<std::endl;
             }      
         }
  
@@ -196,7 +196,6 @@ void Partida::update(){
             //los updateamos solo si estan dentro de la pantalla
             if((view.getCenter().getVectorY()+420)>aliens[i].getPos().getVectorY()&&(view.getCenter().getVectorY()-420)<aliens[i].getPos().getVectorY()){
                 aliens[i].Update();
-                aliens[i].dibujaBalas();
                 aliens[i].dispara(texture);
                 ship->golpea(aliens[i].getShape()); //si mata al alien
             }
@@ -223,6 +222,10 @@ void Partida::draw(){
     }
     
     ship->draw();
+    
+    for(int i=0;i<t1;i++){
+        aliens[i].dibujaBalas();
+    }
     
     for(int i=0;i<t3;i++){
         if((view.getCenter().getVectorY()+420)>meteor[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<meteor[i].getCoord().getVectorY()){

@@ -67,7 +67,7 @@ m2D::Vector2f& Alien::getPos(){
 void Alien::dispara(m2D::Texture &textura){
     if(dis.getElapsedTimeAsSeconds()>1){
         Bala *newBullet= new Bala(textura);//TAMAÑO DE BALA
-        newBullet->setPos(m2D::Vector2f(sprite.getPositionX()+50,sprite.getPositionY()+20));//POSICION DE LA BALA
+        newBullet->setPos(m2D::Vector2f(sprite.getPositionX()+15,sprite.getPositionY()+20));//POSICION DE LA BALA
         balas.push_back(newBullet);//VECTOR DE BALAS
         dis.restart();
     }
