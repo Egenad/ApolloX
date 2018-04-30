@@ -11,10 +11,11 @@
  * Created on 26 de marzo de 2018, 21:35
  */
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
-#include "Sprite.h"
 #include "Vector2f.h"
+#include "Sprite.h"
+#include "Texture.h"
+#include "RenderWindow.h"
 
 #ifndef MATERIAL_H
 #define MATERIAL_H
@@ -24,13 +25,23 @@ public:
     Material();
     Material(const Material& orig);
     virtual ~Material();
+    m2D::Sprite& returnSprite();
+    void setTexture(m2D::Texture& texture);
+    void setCoord(int x, int y);
+    void setType(int);
+    m2D::Vector2f& getCoord();
+    int getType();
+    void move();
+    void draw();
+    void update();
 private:
-    int type;
+    int type; //0 carbon, 1 hierro, 2 titanio, 3 magnesio
     m2D::Sprite sprite;
     m2D::Vector2f position;
     int state;
-    int p_appear;
+    //int p_appear;
 };
 
 #endif /* MATERIAL_H */
+
 
