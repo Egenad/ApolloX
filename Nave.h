@@ -24,6 +24,7 @@
 #include "Bala.h"
 #include "Meteorito.h"
 #include "Alien.h"
+#include "Escudo.h"
 
 #ifndef NAVE_H
 #define NAVE_H
@@ -54,6 +55,7 @@ public:
     void moveDown();
     void golpea(Alien& alien);
     bool checkCollMete(Meteorito& meteorito);
+    bool checkCollEsc(Escudo& escudo);
     bool checkColl(Bala& bullet);
     
 protected:
@@ -70,6 +72,7 @@ private:
     std::vector<Bala*> vectorBalas;
     
     int state;
+    m2D::Clock shell;
     int life;
     int maxLife;
     int munition;

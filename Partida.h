@@ -23,6 +23,7 @@
 #include "Jefe.h"
 #include "Meteorito.h"
 #include "Alien.h"
+#include "Material.h"
 
 #ifndef PARTIDA_H
 #define PARTIDA_H
@@ -71,6 +72,8 @@ private:
     //vista
     
     //objetos
+    int ts;
+    Escudo* shell;
     
     //jefe
     int t4;
@@ -84,8 +87,13 @@ private:
     int mode;//0 normal, 1 infinite
     //materiales
     int m1;
+    Material* carbon;
     int m2;
+    Material* hierro;
     int m3;
+    Material* titanio;
+    int m4;
+    Material* magnesio;
     //contador infinito
     int lvlI;
     //longitud actual infinito

@@ -12,7 +12,6 @@
  */
 #include <iostream>
 
-
 #include "Game.h"
 #include "Pausa.h"
 #include "Partida.h"
@@ -234,6 +233,15 @@ void Partida::update(){
         
         this->updateText();
         
+        //Coger escudo
+        for(int i=0;i<ts;i++){
+           if((view.getCenter().getVectorY()+420)>shell[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<shell[i].getCoord().getVectorY()){
+                //shell[i].update();
+                ship->checkCollEsc(shell[i]);
+                
+            }      
+        }
+        
     }else{
         //updateamos de distinta forma
         ship->disparar(texture);
@@ -285,6 +293,28 @@ void Partida::draw(){
         m2D::RenderWindow::Instance()->draw(lifeS[2]);
         m2D::RenderWindow::Instance()->draw(lifeS[3]);
     } 
+    
+    //escudos
+    for(int i=0;i<ts;i++){
+        shell[i].draw();
+    }
+    
+    //materiales
+    if(mode==1){
+        for(int i=0;i<m1;i++){
+            carbon[i].draw();
+        }
+        for(int i=0;i<m2;i++){
+            hierro[i].draw();
+        }
+        for(int i=0;i<m3;i++){
+            titanio[i].draw();
+        }
+        for(int i=0;i<m4;i++){
+            magnesio[i].draw();
+        }
+    }
+
 }
 
 void Partida::moveBackground(){
@@ -349,77 +379,100 @@ void Partida::Init(int i){
     int ran3=rand()%100;
     meteor=new Meteorito[t3]; //meteoritos
     aliens=new Alien[t1]; //aliens
+    
+    //Escudos
+    ts=2;
+    shell=new Escudo[ts];
+    int conts=0;
+    
+    
+    int total=totalEnemies+ts;
+    
+    int intS = total/(ts+1);
+    
     srand(time(NULL));
-    for(int i=0;i<totalEnemies;i++){
-        int a=rand() % 9;
-        if(a>=0&&a<=5){
-            //creamos enemigo A
-            if(cont1<t1){
-                
-                int x1=rand() % 585;
-                x1=x1+475;
-                int y1 =(length/totalEnemies)*i;
-                aliens[cont1].setPos(x1,-y1-860);
-                aliens[cont1].setTexture(texture);
-                cont1++;
-                
-            }else if(cont2<t2){
-                enemiesB[cont2]=i;
-                cont2++;
-            }else if(cont3<t3){
-                int x=rand() % 585;
-                x=x+475;
-                int y =(length/totalEnemies)*i;
-                meteor[cont3].setCoord(x,-y-860);
-                meteor[cont3].setTexture(texture);
-                cont3++;
-            }
+    for(int i=0;i<total;i++){
+        
+        if(intS==i && conts<ts){
+            int x1=rand() % 585;
+            x1=x1+475;
+            int y1 =(length/total)*i;
+            shell[conts].setCoord(x1,-y1-860);
+            shell[conts].setTexture(texture);
+            conts++;
+            intS = intS + total/(ts+1);
             
-        }else if(a>=6&&a<=7){
-            //creamos meteorito
-            if(cont2<t2){
-                
-                enemiesB[cont2]=i;
-                cont2++;
-            }else if(cont3<t3){
-                int x=rand() % 585;
-                x=x+475;
-                int y =(length/totalEnemies)*i;
-                meteor[cont3].setCoord(x,-y-860);
-                meteor[cont3].setTexture(texture);
-                cont3++;
-                
-            }else if(cont1<t1){
-                
-                int x1=rand() % 585;
-                x1=x1+475;
-                int y1 =(length/totalEnemies)*i;
-                aliens[cont1].setPos(x1,-y1-860);
-                aliens[cont1].setTexture(texture);
-                cont1++;
-            }
-        }else{
-            //creamos enemigo B
-            if(cont3<t3){
-                int x=rand() % 585;
-                x=x+475;
-                int y =(length/totalEnemies)*i;
-                meteor[cont3].setCoord(x,-y-860);
-                meteor[cont3].setTexture(texture);
-                cont3++;
-                
-            }else if(cont1<t1){
-                
-                int x1=rand() % 585;
-                x1=x1+475;
-                int y1 =(length/totalEnemies)*i;
-                aliens[cont1].setPos(x1,-y1-860);
-                aliens[cont1].setTexture(texture);
-                cont1++;
-            }else if(cont2<t2){
-                
-                enemiesB[cont2]=i;
-                cont2++;
+        }else {
+            int a=rand() % 9;
+            if(a>=0&&a<=5){
+                //creamos enemigo A
+                if(cont1<t1){
+
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens[cont1].setPos(x1,-y1-860);
+                    aliens[cont1].setTexture(texture);
+                    cont1++;
+
+                }else if(cont2<t2){
+                    enemiesB[cont2]=i;
+                    cont2++;
+                }else if(cont3<t3){
+                    int x=rand() % 585;
+                    x=x+475;
+                    int y =(length/total)*i;
+                    meteor[cont3].setCoord(x,-y-860);
+                    meteor[cont3].setTexture(texture);
+                    cont3++;
+                }
+
+            }else if(a>=6&&a<=7){
+                //creamos meteorito
+                if(cont2<t2){
+
+                    enemiesB[cont2]=i;
+                    cont2++;
+                }else if(cont3<t3){
+                    int x=rand() % 585;
+                    x=x+475;
+                    int y =(length/total)*i;
+                    meteor[cont3].setCoord(x,-y-860);
+                    meteor[cont3].setTexture(texture);
+                    cont3++;
+
+                }else if(cont1<t1){
+
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens[cont1].setPos(x1,-y1-860);
+                    aliens[cont1].setTexture(texture);
+                    cont1++;
+                }
+            }else{
+                //creamos enemigo B
+                if(cont3<t3){
+                    int x=rand() % 585;
+                    x=x+475;
+                    int y =(length/total)*i;
+                    meteor[cont3].setCoord(x,-y-860);
+                    meteor[cont3].setTexture(texture);
+                    cont3++;
+
+                }else if(cont1<t1){
+
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens[cont1].setPos(x1,-y1-860);
+                    aliens[cont1].setTexture(texture);
+                    cont1++;
+                }else if(cont2<t2){
+
+                    enemiesB[cont2]=i;
+                    cont2++;
+                }
             }
         }
     }
