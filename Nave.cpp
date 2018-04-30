@@ -10,6 +10,7 @@
  * 
  * Created on 27 de febrero de 2018, 18:18
  */
+
 #include <iostream>
 #include "Nave.h"
 #include "RenderWindow.h"
@@ -142,6 +143,15 @@ int Nave::getMunition(){
 
 void Nave::setState(int d){
     state=d;
+    
+    if(state==1){
+        //escudo
+        sprite.setTextureRect(493,73,110,139);
+        shell.restart();
+    }else if(state==2){
+        //normal
+        sprite.setTextureRect(0,212,110,139);
+    }
 }
 m2D::Vector2f& Nave::getPosition(){
     return position;
@@ -176,10 +186,18 @@ void Nave::update(){
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
         if(animationType==0){
             animationType=1;
-            sprite.setTextureRect(110,212,110,142);
+            if(state==2){
+                sprite.setTextureRect(110,212,110,142);
+            }else if(state==1){
+                sprite.setTextureRect(2*110,212,110,142);
+            }
         }else{
             animationType=0;
-            sprite.setTextureRect(0,212,110,139);
+            if(state==2){
+                sprite.setTextureRect(0,212,110,139);
+            }else if(state==1){
+                sprite.setTextureRect(493,73,110,139);
+            }
         }
         animation.restart();
     }
@@ -244,6 +262,10 @@ void Nave::update(){
             }
         }      
     }
+    //Escudo
+    if(shell.getElapsedTimeAsSeconds()>=10.0f && state==1){
+        this->setState(2);
+    }
 }
 
 void Nave::update2(){
@@ -251,10 +273,18 @@ void Nave::update2(){
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
         if(animationType==0){
             animationType=1;
-            sprite.setTextureRect(110,212,110,142);
+            if(state==2){
+                sprite.setTextureRect(110,212,110,142);
+            }else if(state==1){
+                sprite.setTextureRect(2*110,212,110,142);
+            }
         }else{
             animationType=0;
-            sprite.setTextureRect(0,212,110,139);
+            if(state==2){
+                sprite.setTextureRect(0,212,110,139);
+            }else if(state==1){
+                sprite.setTextureRect(493,73,110,139);
+            }
         }
         animation.restart();
     }
@@ -363,14 +393,16 @@ void Nave::moveDown(){
 bool Nave::checkCollMete(Meteorito& meteorito){
         //ESTAMOS COLISIONANDO 100%
     bool cola=false;
-    if(sprite.getGlobalBounds().intersects(meteorito.returnShape().getGlobalBounds())&&meteorito.getColisioned()==false){ 
-        //detectar lo de la vida
-        cola=true;
-        meteorito.setColisioned();
-        life = life - 50;
-        Partida::Instance()->reduceLifeBar(life);
-        if(life<=0){
-           Game::Instance()->setState(Missions::Instance());
+    if(state != 1 ){
+        if(sprite.getGlobalBounds().intersects(meteorito.returnShape().getGlobalBounds())&&meteorito.getColisioned()==false){ 
+            //detectar lo de la vida
+            cola=true;
+            meteorito.setColisioned();
+            life = life - 50;
+            Partida::Instance()->reduceLifeBar(life);
+            if(life<=0){
+               Game::Instance()->setState(Missions::Instance());
+            }
         }
     }
 }
@@ -378,17 +410,30 @@ bool Nave::checkCollMete(Meteorito& meteorito){
 bool Nave::checkColl(Bala &bullet){//COLISIONES
         //ESTAMOS COLISIONANDO 100%
     bool cola=false;
-    if(sprite.getGlobalBounds().intersects(bullet.returnShape().getGlobalBounds())){ 
-        //detectar lo de la vida
-        cola=true;
-        life = life - 100;
-        Partida::Instance()->reduceLifeBar(life);
-        if(life<=0){
-            Game::Instance()->setState(Missions::Instance());
+    if(state != 1 ){
+        if(sprite.getGlobalBounds().intersects(bullet.returnShape().getGlobalBounds())){ 
+            //detectar lo de la vida
+            cola=true;
+            life = life - 100;
+            Partida::Instance()->reduceLifeBar(life);
+            if(life<=0){
+                Game::Instance()->setState(Missions::Instance());
+            }
         }
     }
     
     return cola;
+}
+
+bool Nave::checkCollEsc(Escudo& escudo){
+    //ESTAMOS COLISIONANDO 100%
+    bool cola=false;
+    if(sprite.getGlobalBounds().intersects(escudo.returnSprite().getGlobalBounds())){ 
+        //detectar lo de la vida
+        cola=true;
+        this->setState(1);
+        
+    }
 }
 
 int Nave::getLife(){
