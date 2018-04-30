@@ -19,6 +19,9 @@
 #include "Vector2f.h"
 #include "Bala.h"
 #include "Alien.h"
+#include "Game.h"
+#include "Missions.h"
+#include "Partida.h"
 
 Nave* Nave::pinstance=0;
 Nave* Nave::Instance(){
@@ -262,13 +265,14 @@ void Nave::moveDown(){
 bool Nave::checkCollMete(Meteorito& meteorito){
         //ESTAMOS COLISIONANDO 100%
     bool cola=false;
-    if(sprite.getGlobalBounds().intersects(meteorito.returnShape().getGlobalBounds())){ 
+    if(sprite.getGlobalBounds().intersects(meteorito.returnShape().getGlobalBounds())&&meteorito.getColisioned()==false){ 
         //detectar lo de la vida
         cola=true;
-        
+        meteorito.setColisioned();
         life = life - 50;
+        Partida::Instance()->reduceLifeBar(life);
         if(life<=0){
-           sprite.setPosition(10000,10000);
+           Game::Instance()->setState(Missions::Instance());
         }
     }
 }
@@ -280,8 +284,9 @@ bool Nave::checkColl(Bala &bullet){//COLISIONES
         //detectar lo de la vida
         cola=true;
         life = life - 225;
+        Partida::Instance()->reduceLifeBar(life);
         if(life<=0){
-           sprite.setPosition(10000,10000);
+            Game::Instance()->setState(Missions::Instance());
         }
     }
     

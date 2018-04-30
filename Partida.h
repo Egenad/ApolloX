@@ -39,6 +39,8 @@ public:
     float getCoordViewX();
     float getCoordViewY();
     void setViewtoOrigin();
+    void updateText();
+    void reduceLifeBar(int);
     
 protected:
     Partida();
@@ -85,6 +87,11 @@ private:
     int lvlI;
     //longitud actual infinito
     int path;
+    
+    //variables para dibujar el score
+    m2D::Font font;
+    m2D::Text* text;
+    m2D::Sprite* lifeS;
     
 };
 

@@ -38,6 +38,7 @@ Meteorito::Meteorito() {
         size=0;
     }
     
+    colisioned=false;
     //por si las moscas inicializamos position
     this->setCoord(0,0);
     
@@ -110,3 +111,10 @@ m2D::Vector2f& Meteorito::getCoord(){
     return position;
 }
 
+bool Meteorito::getColisioned(){
+    return colisioned;
+}
+
+void Meteorito::setColisioned(){
+    colisioned=true;
+}

@@ -20,6 +20,7 @@ Jefe::Jefe() {
     life = 0;
     type = 0;
     nsprite = 0;
+    strategy=NULL;
 }
 
 void Jefe::setType(int n){
@@ -127,7 +128,9 @@ void Jefe::setFase(int n){
 }
 
 void Jefe::setStrategy(Strategy *obj){
-    delete strategy;
+    if(strategy!=NULL){
+        delete strategy;
+    }
     strategy = obj;
 }
 

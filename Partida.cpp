@@ -80,6 +80,42 @@ Partida::Partida() {
     bossTexture.setLoadFromFile("resources/bosses.png");
     jefe = new Jefe();
     jefe->setTexture(bossTexture);
+    
+    
+    //variables score y vida
+    font.loadFromFile("resources/pirulen.ttf");
+    
+    text=new m2D::Text[5];
+    
+    for(int i=0;i<5;i++){
+        text[i].setFont(font);
+    }
+    
+    text[0].setString("VIDA");
+    text[0].setCharacterSize(30);
+    text[0].setPosition(20,ship->getPosition().getVectorY()-790);
+    
+    text[1].setString("PUNTUACION");
+    text[1].setCharacterSize(30);
+    text[1].setPosition(20,ship->getPosition().getVectorY()-550);
+    
+    text[2].setString("MUNICION");
+    text[2].setCharacterSize(30);
+    text[2].setPosition(20,ship->getPosition().getVectorY()-500);
+    
+    
+    lifeS=new m2D::Sprite[2];
+    for(int i=0;i<2;i++){
+        lifeS[i].setTexture(bossTexture);
+    }
+    
+    lifeS[0].setTextureRect(0,810,234,15);
+    lifeS[0].setPosition(10,ship->getPosition().getVectorY()-720);
+    lifeS[0].scale(1.3,1.3);
+    
+    lifeS[1].setTextureRect(0,0,219,5);
+    lifeS[1].setPosition(20,ship->getPosition().getVectorY()-715);
+    lifeS[1].scale(1.3,1.3);
 }
 
 void Partida::handleInput(){
@@ -170,11 +206,20 @@ void Partida::update(){
         jefe->update(texture);
     }
     
+    this->updateText();
+    
 }
 
 void Partida::draw(){
     for(int i=0;i<3;i++){
         m2D::RenderWindow::Instance()->draw(background[i]);
+    }
+    
+    for(int i=0;i<3;i++){
+        m2D::RenderWindow::Instance()->drawT(text[i]);
+    }
+    for(int i=0;i<2;i++){
+        m2D::RenderWindow::Instance()->draw(lifeS[i]);
     }
     
     ship->draw();
@@ -564,3 +609,15 @@ Partida::Partida(const Partida& orig) {
 Partida::~Partida() {
 }
 
+void Partida::updateText(){
+    text[0].setPosition(20,ship->getPosition().getVectorY()-790);
+    text[1].setPosition(20,ship->getPosition().getVectorY()-650);
+    text[2].setPosition(20,ship->getPosition().getVectorY()-500);
+    lifeS[0].setPosition(10,ship->getPosition().getVectorY()-720);
+    lifeS[1].setPosition(20,ship->getPosition().getVectorY()-715);
+}
+
+void Partida::reduceLifeBar(int life){
+    int width=(life*219)/1000;
+    lifeS[1].setTextureRect(0,0,width,5);
+}

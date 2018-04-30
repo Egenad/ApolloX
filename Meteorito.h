@@ -32,6 +32,8 @@ public:
     void move();
     void draw();
     void update();
+    bool getColisioned();
+    void setColisioned();
 private:
     
     //int tipo; 
@@ -39,6 +41,7 @@ private:
     int tipo; //tipo para indicar el tipo de trayectoria
     int size; //0 peque, 1 grande
     int rot; //velocidad de rotacion
+    bool colisioned;
     m2D::Vector2f position; 
     m2D::Sprite sprite;
 };
