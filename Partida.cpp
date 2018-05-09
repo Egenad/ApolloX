@@ -113,7 +113,7 @@ Partida::Partida() {
     
     lifeS=new m2D::Sprite[4];
     for(int i=0;i<4;i++){
-        lifeS[i].setTexture(bossTexture);
+        lifeS[i].setTexture(bossTexture);//vida del jefe
     }
     
     lifeS[0].setTextureRect(0,810,234,15);
@@ -142,56 +142,29 @@ void Partida::handleInput(){
         if(event.getEventType()== sf::Event::Closed){
            m2D::RenderWindow::Instance()->close();
         }
-        else if(event.getEventType() == sf::Event::KeyPressed){          
-            if(event.getKey() == sf::Keyboard::Left && event.getKey() == sf::Keyboard::Up){
-                ship->moveLeft();
-                if(state == 1)
-                ship->moveUp();
-            }else if(event.getKey() == sf::Keyboard::Left && event.getKey() == sf::Keyboard::Down){
-                ship->moveLeft();
-                if(state == 1)
-                ship->moveDown();
-            }else if(event.getKey() == sf::Keyboard::Right && event.getKey() == sf::Keyboard::Down){
-                ship->moveRight();
-                if(state == 1)
-                ship->moveDown();
-            }else if(event.getKey() == sf::Keyboard::Right && event.getKey() == sf::Keyboard::Up){
-                ship->moveRight();
-                if(state == 1)
-                ship->moveUp();
-            } 
-            else{
-                switch(event.getKey()){
-                    case sf::Keyboard::Space:
-                        if(state == 0)
-                        ship->disparar(texture);               
-                    break;
-
-                    case sf::Keyboard::Right:
-                        ship->moveRight();
-                    break;
-
-                    case sf::Keyboard::Left:
-                        ship->moveLeft();     
-                    break;
-
-                    case sf::Keyboard::Up:
-                        if(state == 1)
-                            ship->moveUp();     
-                    break;
-
-                    case sf::Keyboard::Down:
-                        if(state == 1)
-                            ship->moveDown();     
-                    break;
-
-                    case sf::Keyboard::Escape:
-                        Game::Instance()->setState(Pausa::Instance());
-                    break;
-                }
-            }
-        }
-    }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left)){
+             ship->moveLeft();
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right)){
+             ship->moveRight();
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Space)){
+             ship->disparar(texture);
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Escape)){
+             Game::Instance()->setState(Pausa::Instance());
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Up)){
+             if(state==1){
+                 ship->moveUp();
+             }
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Down)){
+             if(state==1){
+                 ship->moveDown();
+             }
+         }
+    }    //Si pulsamos cursor izquierda
 }
 
 void Partida::update(){
@@ -396,6 +369,7 @@ void Partida::Init(int i){
         if(intS==i && conts<ts){
             int x1=rand() % 585;
             x1=x1+475;
+            
             int y1 =(length/total)*i;
             shell[conts].setCoord(x1,-y1-860);
             shell[conts].setTexture(texture);
