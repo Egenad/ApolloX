@@ -27,6 +27,7 @@
 #include "StrategyA.h"
 #include "StrategyB.h"
 #include <string>
+#include "Escudo.h"
 
 Partida* Partida::pinstance=0;
 Partida* Partida::Instance(){
@@ -273,6 +274,7 @@ void Partida::draw(){
     }
     
     //materiales
+    /*
     if(mode==1){
         for(int i=0;i<m1;i++){
             carbon[i].draw();
@@ -287,6 +289,7 @@ void Partida::draw(){
             magnesio[i].draw();
         }
     }
+     */ 
 
 }
 
@@ -455,6 +458,7 @@ void Partida::Init(int i){
 void Partida::Infinite(){
     
     mode=1; //modo infinito
+    
     FactoriaNivel* fLvl = FactoriaNivel::Instance();
     
     if(ship->getPosition().getVectorY()==0){
@@ -491,9 +495,11 @@ void Partida::Infinite(){
         ss4 << m;
         ss4>>t3;
         std::cout<<"Enemigo3: "<< t3<<std::endl;
-
-        int totalEnemies=t3+t2+t1;
-        std::cout<<"Total enemigos: "<< totalEnemies<<std::endl;
+        
+        m1=3;
+        m2=4;
+        m3=3;
+        m4=8;  
 
     }else{
         std::cout<<"Continuamos modo infinito"<< lvlI << std::endl;
@@ -507,7 +513,7 @@ void Partida::Infinite(){
     int cont2=0;
     int cont3=0;
     
-    int* enemiesB=new int[t2];
+    int* enemiesB=new int[t2]; //Alien2
     int ran3=rand()%100;
     meteor=new Meteorito[t3]; //meteoritos
     aliens=new Alien[t1]; //aliens
@@ -597,7 +603,7 @@ void Partida::Infinite(){
             }
         }
     }
-    
+    /*
     //materiales
     srand(time(NULL));
     for(int i=0;i<totalmaterials;i++){
@@ -656,6 +662,8 @@ void Partida::Infinite(){
             }
         }
     }
+     */ 
+     
     
 }
 
