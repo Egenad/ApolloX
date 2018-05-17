@@ -45,6 +45,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/Font.o \
 	${OBJECTDIR}/Game.o \
 	${OBJECTDIR}/Jefe.o \
+	${OBJECTDIR}/Logo.o \
 	${OBJECTDIR}/Material.o \
 	${OBJECTDIR}/Menu.o \
 	${OBJECTDIR}/Meteorito.o \
@@ -90,11 +91,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.7
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.8
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.7: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.8: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.7 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-0.8 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Agente.o: Agente.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -145,6 +146,11 @@ ${OBJECTDIR}/Jefe.o: Jefe.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Jefe.o Jefe.cpp
+
+${OBJECTDIR}/Logo.o: Logo.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Logo.o Logo.cpp
 
 ${OBJECTDIR}/Material.o: Material.cpp
 	${MKDIR} -p ${OBJECTDIR}
