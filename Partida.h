@@ -23,6 +23,7 @@
 #include "Jefe.h"
 #include "Meteorito.h"
 #include "Alien.h"
+#include "Alien2.h"
 #include "Material.h"
 
 #ifndef PARTIDA_H
@@ -64,6 +65,7 @@ private:
     int t2;
     int t1;
     Alien* aliens;
+    Alien2* aliens2;
     //obstaculos
     int t3;
     Meteorito* meteor;
