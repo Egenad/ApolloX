@@ -103,6 +103,8 @@ void Missions::handleInput(){
                 //mission3
             }else if(seleccionado==2){
                 //mission2
+                Game::Instance()->setState(Partida::Instance());
+                Partida::Instance()->Init(2);
             }else if(seleccionado==1){
                 //mision1
                 Game::Instance()->setState(Partida::Instance());
