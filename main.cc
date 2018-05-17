@@ -7,6 +7,7 @@
 #include "Clock.h"
 #include "Event.h"
 #include "Game.h"
+#include "Logo.h"
 
 #define d 300
 #define updateTickTime 15
@@ -16,7 +17,7 @@ void render_interpolacion(m2D::RenderWindow &, Partida &, Partida &, float , Nav
 int main()
 {   
     Game* game = Game::Instance();
-    game->setState(Menu::Instance());
+    game->setState(Logo::Instance());
     
     //bucle del juego
     game->runGame();
