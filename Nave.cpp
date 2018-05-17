@@ -474,3 +474,14 @@ void Nave::golpea(Alien& alien){
         }
     }
 }
+
+void Nave::golpea2(Alien2& alien){
+    for(int i=0;i<vectorBalas.size();i++){
+        if(vectorBalas[i]->returnShape().getGlobalBounds().intersects(alien.getShape().getGlobalBounds())){
+            delete vectorBalas[i];
+            vectorBalas.erase(vectorBalas.begin()+i);
+            alien.setState();
+            Partida::Instance()->aumentScore();
+        }
+    }
+}

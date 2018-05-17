@@ -207,6 +207,17 @@ void Partida::update(){
             }
         }
         
+        for(int i=0;i<t2;i++){
+            //los updateamos solo si estan dentro de la pantalla
+            if((view.getCenter().getVectorY()+420)>aliens2[i].getPos().getVectorY()&&(view.getCenter().getVectorY()-420)<aliens2[i].getPos().getVectorY()){
+                aliens2[i].Update();
+                if(aliens2[i].getStateAlien() == 0){
+                    aliens2[i].dispara(texture);
+                    ship->golpea2(aliens2[i]); //si mata al alien
+                }
+            }
+        }
+        
         this->updateText();
         
         //Coger escudo
@@ -247,6 +258,10 @@ void Partida::draw(){
         aliens[i].dibujaBalas();
     }
     
+        for(int i=0;i<t2;i++){
+        aliens2[i].dibujaBalas();
+    }
+    
     for(int i=0;i<t3;i++){
         if((view.getCenter().getVectorY()+420)>meteor[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<meteor[i].getCoord().getVectorY()){
             if(meteor[i].getCoord().getVectorX()<1159&&meteor[i].getCoord().getVectorX()>400){
@@ -261,6 +276,16 @@ void Partida::draw(){
             //si se ha salido de los bordes no dibujamos pero si updateamos
             if(aliens[i].getPos().getVectorX()<1159&&aliens[i].getPos().getVectorX()>400){
                 aliens[i].draw();
+            }
+        }
+    }
+    
+    for(int i=0;i<t2;i++){
+        //los dibujamos solo si estan dentro de la pantalla
+        if((view.getCenter().getVectorY()+420)>aliens2[i].getPos().getVectorY()&&(view.getCenter().getVectorY()-420)<aliens2[i].getPos().getVectorY()){
+            //si se ha salido de los bordes no dibujamos pero si updateamos
+            if(aliens2[i].getPos().getVectorX()<1159&&aliens2[i].getPos().getVectorX()>400){
+                aliens2[i].draw();
             }
         }
     }
@@ -357,6 +382,7 @@ void Partida::Init(int i){
     int ran3=rand()%100;
     meteor=new Meteorito[t3]; //meteoritos
     aliens=new Alien[t1]; //aliens
+    aliens2=new Alien2[t2]; //aliens
     
     //Escudos
     ts=2;
@@ -395,7 +421,11 @@ void Partida::Init(int i){
                     cont1++;
 
                 }else if(cont2<t2){
-                    enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                     cont2++;
                 }else if(cont3<t3){
                     int x=rand() % 585;
@@ -409,8 +439,11 @@ void Partida::Init(int i){
             }else if(a>=6&&a<=7){
                 //creamos meteorito
                 if(cont2<t2){
-
-                    enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                     cont2++;
                 }else if(cont3<t3){
                     int x=rand() % 585;
@@ -448,8 +481,11 @@ void Partida::Init(int i){
                     aliens[cont1].setTexture(texture);
                     cont1++;
                 }else if(cont2<t2){
-
-                    enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/total)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                     cont2++;
                 }
             }
@@ -519,6 +555,7 @@ void Partida::Infinite(){
     int ran3=rand()%100;
     meteor=new Meteorito[t3]; //meteoritos
     aliens=new Alien[t1]; //aliens
+    aliens2=new Alien2[t2];
     
     int totalmaterials=m3+m2+m1;
     
@@ -546,7 +583,11 @@ void Partida::Infinite(){
                 cont1++;
                 
             }else if(cont2<t2){
-                enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/totalEnemies)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                 cont2++;
             }else if(cont3<t3){
                 int x=rand() % 585;
@@ -560,8 +601,11 @@ void Partida::Infinite(){
         }else if(a>=6&&a<=7){
             //creamos meteorito
             if(cont2<t2){
-                
-                enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/totalEnemies)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                 cont2++;
             }else if(cont3<t3){
                 int x=rand() % 585;
@@ -599,8 +643,11 @@ void Partida::Infinite(){
                 aliens[cont1].setTexture(texture);
                 cont1++;
             }else if(cont2<t2){
-                
-                enemiesB[cont2]=i;
+                    int x1=rand() % 585;
+                    x1=x1+475;
+                    int y1 =(length/totalEnemies)*i;
+                    aliens2[cont2].setPos(x1,-y1-860);
+                    aliens2[cont2].setTexture(texture);
                 cont2++;
             }
         }

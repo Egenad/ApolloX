@@ -24,6 +24,7 @@
 #include "Bala.h"
 #include "Meteorito.h"
 #include "Alien.h"
+#include "Alien2.h"
 #include "Escudo.h"
 
 #ifndef NAVE_H
@@ -55,6 +56,7 @@ public:
     void moveUp();
     void moveDown();
     void golpea(Alien& alien);
+    void golpea2(Alien2& alien);
     bool checkCollMete(Meteorito& meteorito);
     bool checkCollEsc(Escudo& escudo);
     bool checkColl(Bala& bullet);
