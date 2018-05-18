@@ -16,11 +16,13 @@
 
 class NPC {
 public:
-    NPC();
-    NPC(const NPC& orig);
-    virtual ~NPC();
+    virtual void draw()=0;
+    virtual void update()=0;
+    virtual void setTexture(m2D::Texture& texture)=0;
+    
 private:
 
+    
 };
 
 #endif /* NPC_H */

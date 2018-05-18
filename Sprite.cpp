@@ -11,6 +11,7 @@
  * Created on 18 de abril de 2018, 19:26
  */
 
+
 #include "Sprite.h"
 namespace m2D{
     
@@ -32,14 +33,8 @@ namespace m2D{
     void Sprite::setOrigin(float x, float y){
         sprite.setOrigin(x, y);
     }
-    void Sprite::setTexture(std::string n){
-        sf::Texture text;
-        if (!text.loadFromFile(n))
-        {
-            std::cerr << "Error cargando la imagen " << n << std::endl;
-            exit(0);
-        }
-        sprite.setTexture(text);
+    void Sprite::setTexture(m2D::Texture& text){
+        sprite.setTexture(text.getTexture());
     }
     void Sprite::setTextureRect(int a1, int a2, int a3, int a4){   
         sprite.setTextureRect(sf::IntRect(a1, a2, a3, a4));
@@ -52,5 +47,33 @@ namespace m2D{
     }
     sf::Sprite& Sprite::getSprite(){
         return sprite;
+    }
+    
+    float Sprite::getPositionX(){
+        return sprite.getPosition().x;
+    }
+    
+    float Sprite::getPositionY(){
+        return sprite.getPosition().y;
+    }
+    
+    sf::FloatRect Sprite::getGlobalBounds(){
+        return sprite.getGlobalBounds();
+    }
+    
+    void Sprite::move(float velx, float vely){
+        sprite.move(velx,vely);
+    }
+    
+    void Sprite::rotate(int rot){
+        sprite.rotate(rot);
+    }
+    
+    void Sprite::setColor(int r,int g,int b){
+        sprite.setColor(sf::Color(r,g,b));
+    }
+    
+    void Sprite::setColorWithA(int r,int g,int b, int a){
+        sprite.setColor(sf::Color(r,g,b,a));
     }
 }

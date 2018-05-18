@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /* 
- * 
- * File:   Alien.h
+ * File:   Alien2.h
  * Author: raquel
  *
  * Created on 26 de marzo de 2018, 21:34
@@ -14,8 +12,9 @@
 
 
 
-#ifndef ALIEN_H
-#define ALIEN_H
+
+#ifndef ALIEN2_H
+#define ALIEN2_H
 
 #include "Bala.h"
 #include "Clock.h"
@@ -27,11 +26,11 @@
 #include <math.h>
 
 
-class Alien {
+class Alien2 {
 public:
-    Alien();
-    Alien(const Alien& orig);
-    virtual ~Alien();
+    Alien2();
+    Alien2(const Alien2& orig);
+    virtual ~Alien2();
     
     int getX();
     int getY();
@@ -46,12 +45,12 @@ public:
     void quitarVida();
     void Update();//EL que llamamos en NIVEL
     void setTexture(m2D::Texture& texture);
-    void move(float grados);
     int getVida();
-    m2D::Vector2f& getPos();
     int getStateAlien();
-    m2D::Sprite& getShape();
+    m2D::Vector2f& getPos();
     void animation();
+    m2D::Sprite& getShape();
+    
     int getTipo();
 private:
     int type;
@@ -60,7 +59,7 @@ private:
     m2D::Texture texture;
     m2D::Vector2f position;
     std::vector<Bala*> balas;//vector balas
-    float grados; //grados de movimiento
+    bool stop;
     int state; //0 vivo, 1 muerto
     int attack;
     int bullet; //tipo de bala
@@ -71,5 +70,5 @@ private:
 
 
 
-#endif /* ALIEN_H */
+#endif /* ALIEN2_H */
 

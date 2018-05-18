@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+
 /* 
  * File:   Nave.h
  * Author: raquel
@@ -15,11 +16,19 @@
 
 
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
 #include "Clock.h"
 #include "Sprite.h"
 #include "Vector2f.h"
+#include "Texture.h"
+#include "RenderWindow.h"
+#include "Bala.h"
+#include "Meteorito.h"
+#include "Alien.h"
+#include "Alien2.h"
+#include "Escudo.h"
+#include "Municion.h"
+#include "Material.h"
 
 #ifndef NAVE_H
 #define NAVE_H
@@ -27,30 +36,67 @@
 class Nave {
     
 public:
-    Nave (int, int, m2D::Sprite);
-    Nave(const Nave& orig);
-    virtual ~Nave();
     
-    m2D::Vector2f getPosition();
+    static Nave* Instance();
+    m2D::Vector2f& getPosition();
+    m2D::Sprite& returnShape();
+    m2D::Sprite& returnShape2();
     void setPosition(int, int);
     int getState();
-    
-    void setSprite(m2D::Sprite);
+    void setTexture(m2D::Texture& texture);
+    void update();
+    void update2();
+    int comprobarChoqueJefe(m2D::Sprite&);
+    void danyo(int);
+    void draw();
     void setState(int);
-    m2D::Sprite& getSprite();
-   
+    void disparar(m2D::Texture& texture);
+    int getMunition();
+    int getLife();
+    void setLife(int);
+    int* getMaterials();
+    void setMunition(int);
+    void moveLeft();
+    void moveRight();
+    void moveUp();
+    void moveDown();
+    void golpea(Alien& alien);
+    void golpea2(Alien2& alien);
+    bool checkCollMete(Meteorito& meteorito);
+    bool checkCollEsc(Escudo& escudo);
+    bool checkCollMaterial(Material& material);
+    bool checkCollMunition(Municion& municion);
+    bool checkColl(Bala& bullet);
+    
+protected:
+    Nave ();
+    Nave(const Nave& orig);
+    virtual ~Nave();
 private:
-    int state;
+    static Nave* pinstance;
     m2D::Vector2f position;
     m2D::Sprite sprite;
+    m2D::Sprite sprite2;
     int velocity;
+    m2D::Clock animation;
+    int animationType;
+    std::vector<Bala*> vectorBalas;
+    
+    int state;
+    m2D::Clock shell;
     int life;
     int maxLife;
     int munition;
     int* materials;
-    
     m2D::Vector2f lastMove;
-    bool moving;   
+    
+    int contador_canyon;
+    bool moving;
+    bool canyon;
+    bool explosion;
+    bool bomb_alive;
+    m2D::Clock cb_time;
+    m2D::Clock tiempo_entre_balas;  
 };
 
 #endif /* NAVE_H */

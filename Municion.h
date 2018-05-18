@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /* 
- * File:   Material.h
+ * File:   Municion.h
  * Author: raquel
  *
- * Created on 26 de marzo de 2018, 21:35
+ * Created on 18 de mayo de 2018, 2:06
  */
 #include <iostream>
 
@@ -16,14 +17,14 @@
 #include "Texture.h"
 #include "RenderWindow.h"
 
-#ifndef MATERIAL_H
-#define MATERIAL_H
+#ifndef MUNICION_H
+#define MUNICION_H
 
-class Material {
+class Municion {
 public:
-    Material();
-    Material(const Material& orig);
-    virtual ~Material();
+    Municion();
+    Municion(const Municion& orig);
+    virtual ~Municion();
     m2D::Sprite& returnSprite();
     void setTexture(m2D::Texture& texture);
     void setPos(int x, int y);
@@ -36,12 +37,12 @@ public:
     void draw();
     void update();
 private:
-    int type; //0 titanio, 1 magnesio, 2 hiero, 3 carbon
+    int type; //0 normal, 1 rafaga, 2 canyon, 3 bomba
     m2D::Sprite sprite;
     m2D::Vector2f position;
     int state;
+
 };
 
-#endif /* MATERIAL_H */
-
+#endif /* MUNICION_H */
 

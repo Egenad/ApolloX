@@ -30,7 +30,39 @@ namespace m2D{
         return event.key.code;
     }
     
-    sf::Event& Event::getEvent(){
+    /*std::string Event::getEvent(){
+        switch(event.type){
+            case sf::Event::Closed:
+                return "Closed";
+            break;
+            case sf::Event::KeyPressed:
+                switch(event.key.code){
+                    case sf::Keyboard::Left:
+                        return "Left";
+                    break;
+                    case sf::Keyboard::Right:
+                        return "Right";
+                    break;
+                    case sf::Keyboard::Up:
+                        return "Up";
+                    break;
+                    case sf::Keyboard::Down:
+                        return "Down";
+                    break;
+                    case sf::Keyboard::Return:
+                        return "Return";
+                    break;
+                    case sf::Keyboard::Space:
+                        return "Space";
+                    break;
+                    default:
+                        return "Innecesario";
+                    break;
+                }
+            break;
+        }
+    }*/
+    sf::Event& Event::getTrueEvent(){
         return event;
     }
 }

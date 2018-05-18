@@ -22,8 +22,8 @@ namespace m2D{
         Event(const Event& orig);
         virtual ~Event();
         sf::Event::EventType getEventType();
-        sf::Event& getEvent();
         sf::Keyboard::Key getKey();
+        sf::Event& getTrueEvent();
     private:
         sf::Event event;
     };

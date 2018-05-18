@@ -17,9 +17,10 @@
 namespace m2D{
     class Texture {
     public:
-        Texture(std::string);
+        Texture();
         Texture(const Texture& orig);
         virtual ~Texture();
+        void setLoadFromFile(std::string);
         sf::Texture& getTexture();
     private:
         sf::Texture text;

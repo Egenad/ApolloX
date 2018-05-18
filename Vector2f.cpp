@@ -15,8 +15,8 @@
 
 namespace m2D{
     Vector2f::Vector2f(){
-        vector.x = 0;
-        vector.y = 0;
+        vector.x = 0.0f;
+        vector.y = 0.0f;
     }
     Vector2f::Vector2f(float _a, float _b) {
         vector.x = _a;

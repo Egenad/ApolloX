@@ -25,13 +25,19 @@ namespace m2D{
         Sprite(const Sprite& orig);
         virtual ~Sprite();
         void setOrigin(float, float);
-        void setTexture(std::string);
+        void setTexture(m2D::Texture&);
         void setTextureRect(int, int, int, int);
         void scale(float, float);
         void setPosition(float, float);
+        void move(float velx, float vely);
+        void rotate(int rot);
+        float getPositionX();
+        float getPositionY();
         sf::Sprite& getSprite();
+        sf::FloatRect getGlobalBounds();
+        void setColor(int,int,int);
+        void setColorWithA(int,int,int, int);
     private:
-        sf::Texture text;
         sf::Sprite sprite;
     };
 }

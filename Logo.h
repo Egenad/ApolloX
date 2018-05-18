@@ -5,7 +5,7 @@
  */
 
 /* 
- * File:   Pausa.h
+ * File:   Tienda.h
  * Author: raquel
  *
  * Created on 26 de marzo de 2018, 21:31
@@ -13,39 +13,33 @@
 
 /*** SINGLETON */
 
-#ifndef PAUSA_H
-#define PAUSA_H
+#ifndef LOGO_H
+#define LOGO_H
 
-#include "Sprite.h"
 #include "Estado.h"
 #include "Texture.h"
-#include "Font.h"
-#include "Text.h"
+#include "Sprite.h"
+#include "Clock.h"
 
-class Pausa : public Estado{
+class Logo : public Estado{
 public:
-    static Pausa* Instance();
+    static Logo* Instance();
     void handleInput();
-    void update();
     void draw();
-    void setCenter();
-    void up();
-    void down();
-    void resetSelected();
+    void update();
     
 protected:
-    Pausa();
-    Pausa(const Pausa& orig);
-    virtual ~Pausa();
+    Logo();
+    Logo(const Logo& orig);
+    virtual ~Logo();
 private:
-    int seleccionado;
-    m2D::Font font;
-    m2D::Text text;
+    static Logo* pinstance;
+    m2D::Clock time;
+    int alpha;
     m2D::Sprite* sprites;
     m2D::Texture texture;
-    static Pausa* pinstance;
-
+    m2D::Texture texture2;
 };
 
-#endif /* PAUSA_H */
+#endif /* TIENDA_H */
 

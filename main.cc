@@ -1,5 +1,4 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
 #include "Nave.h"
 #include "Partida.h"
 #include "Motor2D.h"
@@ -7,6 +6,8 @@
 #include "Vector2f.h"
 #include "Clock.h"
 #include "Event.h"
+#include "Game.h"
+#include "Logo.h"
 
 #define d 300
 #define updateTickTime 15
@@ -14,15 +15,22 @@
 void render_interpolacion(m2D::RenderWindow &, Partida &, Partida &, float , Nave &);
 
 int main()
-{
+{   
+    Game* game = Game::Instance();
+    game->setState(Logo::Instance());
+    
+    //bucle del juego
+    game->runGame();
+    
+    
     //Ventana 
-    m2D::RenderWindow window;
+    /*m2D::RenderWindow window;
     
     //Limito el numero de fps
     window.setFramerateLimit(60);
 
-    /*Crear nave*/
-    m2D::Texture text("./resources/spritesheet.png");
+    /*Crear nave
+    m2D::Texture text("resources/spritesheet.png");
     m2D::Sprite s_nave(text);
     s_nave.setOrigin(110/2,400/2);
     s_nave.setTextureRect(0,0,110,440);
@@ -32,7 +40,7 @@ int main()
     Nave* nave = new Nave(320, 800, s_nave);
     
     
-    /*Inicializar clock*/
+    /*Inicializar clock
     m2D::Clock clock;
     m2D::Vector2f coord_nave(nave->getPosition().getVectorX(), nave->getPosition().getVectorY());
     m2D::Vector2f nuevas;
@@ -145,12 +153,12 @@ int main()
         window.draw(nave->getSprite());
         
         window.display();
-    }
+    }*/
 
     return 0;
 }
 
-void render_interpolacion(m2D::RenderWindow &window, Partida &antiguo, Partida &nuevo, float p, Nave &nave){  
+/*void render_interpolacion(m2D::RenderWindow &window, Partida &antiguo, Partida &nuevo, float p, Nave &nave){  
               
     window.clear();
     
@@ -162,6 +170,21 @@ void render_interpolacion(m2D::RenderWindow &window, Partida &antiguo, Partida &
     nave.setPosition(xalt, yalt);
     antiguo.setCoordShip(xalt, yalt);
     
+    window.draw(nave->getSprite());
+    
+    /*window.clear();
+
+    float x1 = antiguo.getCoordShip().getVectorX();
+    float x2 = nuevo.getCoordShip().getVectorX();
+    //std::cout « "x1: " « x1 « " x2: " « x2 « std::endl;
+    int xalt= x1*(1-p)+x2*p;
+    //int xalt = xi;
+    float y1 = antiguo.getCoordShip().getVectorY();
+    float y2 = nuevo.getCoordShip().getVectorY();
+    int yalt = y1*(1-p)+y2*p;
+
+    nave.setPosition(xalt, yalt);
+
     window.draw(nave.getSprite());
    
-}
+}*/

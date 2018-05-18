@@ -5,47 +5,44 @@
  */
 
 /* 
- * File:   Pausa.h
- * Author: raquel
+ * File:   Missions.h
+ * Author: shiro
  *
- * Created on 26 de marzo de 2018, 21:31
+ * Created on 23 de abril de 2018, 19:57
  */
 
-/*** SINGLETON */
-
-#ifndef PAUSA_H
-#define PAUSA_H
+#ifndef MISSIONS_H
+#define MISSIONS_H
 
 #include "Sprite.h"
 #include "Estado.h"
 #include "Texture.h"
-#include "Font.h"
-#include "Text.h"
 
-class Pausa : public Estado{
+
+class Missions : public Estado{
 public:
-    static Pausa* Instance();
+    static Missions* Instance();
     void handleInput();
     void update();
     void draw();
-    void setCenter();
     void up();
     void down();
+    void right();
+    void left();
+    void setDesbloq();
     void resetSelected();
     
 protected:
-    Pausa();
-    Pausa(const Pausa& orig);
-    virtual ~Pausa();
+    Missions();
+    Missions(const Missions& orig);
+    virtual ~Missions();
 private:
+    static Missions* pinstance;
     int seleccionado;
-    m2D::Font font;
-    m2D::Text text;
     m2D::Sprite* sprites;
     m2D::Texture texture;
-    static Pausa* pinstance;
-
+    int* desbloq; //1 desbloq, 0 bloq
 };
 
-#endif /* PAUSA_H */
+#endif /* MISSIONS_H */
 

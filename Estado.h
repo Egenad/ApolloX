@@ -11,18 +11,19 @@
  * Created on 26 de marzo de 2018, 19:15
  */
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
 #ifndef ESTADO_H
 #define ESTADO_H
 
 class Estado {
 public:
-    Estado();
+    /*Estado();
     Estado(const Estado& orig);
-    virtual ~Estado();
+    virtual ~Estado();*/
+    virtual void handleInput()=0;
+    virtual void draw()=0;
+    virtual void update()=0;
 private:
-    int state;
     
 };
 

@@ -14,7 +14,11 @@
 #include "Texture.h"
 #include <iostream>
 namespace m2D{
-    Texture::Texture(std::string cadena) {
+    Texture::Texture() {
+        
+    }
+    
+    void Texture::setLoadFromFile(std::string cadena){
         if (!text.loadFromFile(cadena))
         {
             std::cerr << "Error cargando la imagen " << cadena << std::endl;

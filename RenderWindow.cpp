@@ -14,8 +14,23 @@
 #include "RenderWindow.h"
 
 namespace m2D{
+    
+    RenderWindow* RenderWindow::pinstance=0;
+    
+    RenderWindow* RenderWindow::Instance(){
+        if(pinstance==0){
+            pinstance=new RenderWindow;
+        }
+        return pinstance;
+    }
+    
+    void RenderWindow::setView(m2D::View& view){
+        window.setView(view.getView());
+    }
+    
     RenderWindow::RenderWindow() {
-        window.create(sf::VideoMode(640, 880), "Apollo X", sf::Style::Fullscreen);
+        
+        window.create(sf::VideoMode(1535, 860), "Apollo X");
         window.setFramerateLimit(60);
     }
 
@@ -40,10 +55,14 @@ namespace m2D{
         window.setFramerateLimit(n);
     }
     bool RenderWindow::pollEvent(m2D::Event& event){
-        return window.pollEvent(event.getEvent());
+        return window.pollEvent(event.getTrueEvent());
     }
     void RenderWindow::draw(m2D::Sprite& sprite){
         window.draw(sprite.getSprite());
+    }
+    void RenderWindow::drawT(m2D::Text& text){
+        
+        window.draw(text.getText());
     }
 }
 

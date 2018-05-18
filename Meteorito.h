@@ -14,17 +14,35 @@
 #ifndef METEORITO_H
 #define METEORITO_H
 
-#include "Sprite.h"
 #include "Vector2f.h"
-class Meteorito {
+#include "Sprite.h"
+#include "Texture.h"
+#include "RenderWindow.h"
+#include "NPC.h"
+
+class Meteorito : public NPC{
 public:
     Meteorito();
     Meteorito(const Meteorito& orig);
-    virtual ~Meteorito();
+    virtual ~Meteorito();  
+    m2D::Sprite& returnShape();
+    void setTexture(m2D::Texture& texture);
+    void setCoord(int x, int y);
+    m2D::Vector2f& getCoord();
+    void move();
+    void draw();
+    void update();
+    bool getColisioned();
+    void setColisioned();
 private:
+    
     //int tipo; 
-    int velocity;
-    int angle;
+    int vely; //velocidad de caida
+    int tipo; //tipo para indicar el tipo de trayectoria
+    int size; //0 peque, 1 grande
+    int rot; //velocidad de rotacion
+    bool colisioned;
+    m2D::Vector2f position; 
     m2D::Sprite sprite;
 };
 
