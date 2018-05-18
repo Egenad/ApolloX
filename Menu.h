@@ -31,6 +31,8 @@ public:
     void down();
     void resetSelected();
     void pausarMusica();
+    void playMusica();
+    void stopMusica();
 protected:
     Menu();
     Menu(const Menu& orig);

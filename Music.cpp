@@ -49,6 +49,11 @@ namespace m2D{
         music.play();
     }
     
+    void Music::stop(){
+        music.stop();
+    }
+    
+    
     
 
 }

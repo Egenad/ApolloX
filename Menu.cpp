@@ -50,7 +50,7 @@ void Menu::handleInput(){
                 Base::Instance()->reduceLifeBar();
             }else if(seleccionado==2){
                 //infinito
-                music.pause();
+                music.stop();
                 Game::Instance()->setState(Partida::Instance());
                 Partida::Instance()->Infinite();
             }else if(seleccionado==1){
@@ -215,5 +215,13 @@ void Menu::resetSelected(){
 
 void Menu::pausarMusica(){
     music.pause();
+}
+
+void Menu::playMusica(){
+    music.play();
+}
+
+void Menu::stopMusica(){
+    music.stop();
 }
 

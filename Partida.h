@@ -50,6 +50,8 @@ public:
     void reduceLifeBar(int);
     void reduceLifeBarBoss(int);
     void aumentScore();
+    void pausarMusica();
+    void stopMusica();
     
 protected:
     Partida();

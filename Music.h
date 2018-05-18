@@ -27,6 +27,7 @@ namespace m2D{
         void play();
         void setVolumen(float vol);
         void pause();
+        void stop();
     private:
         sf::Music music;
     };

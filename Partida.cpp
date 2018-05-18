@@ -1024,3 +1024,11 @@ void Partida::setViewtoShip(){
     view.setCenter(1535/2,ship->getPosition().getVectorY()-360);
     m2D::RenderWindow::Instance()->setView(view);
 }
+
+void Partida::pausarMusica(){
+    music.pause();
+}
+
+void Partida::stopMusica(){
+    music.stop();
+}

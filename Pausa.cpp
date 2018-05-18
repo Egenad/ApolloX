@@ -94,7 +94,8 @@ void Pausa::handleInput(){
                         Game::Instance()->setState(Partida::Instance());
                         
                     }else{
-                        
+                        Partida::Instance()->pausarMusica();
+                        Menu::Instance()->playMusica();
                         Game::Instance()->setState(Missions::Instance());
                         
                     }
