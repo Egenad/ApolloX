@@ -24,6 +24,7 @@
       <itemPath>Missions.h</itemPath>
       <itemPath>Motor2D.h</itemPath>
       <itemPath>Municion.h</itemPath>
+      <itemPath>Music.h</itemPath>
       <itemPath>NPC.h</itemPath>
       <itemPath>Nave.h</itemPath>
       <itemPath>Obstaculo.h</itemPath>
@@ -45,6 +46,7 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <itemPath>resources/Europa.ogx</itemPath>
       <itemPath>resources/spritesheet.png</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
@@ -69,6 +71,7 @@
       <itemPath>Missions.cpp</itemPath>
       <itemPath>Motor2D.cpp</itemPath>
       <itemPath>Municion.cpp</itemPath>
+      <itemPath>Music.cpp</itemPath>
       <itemPath>Nave.cpp</itemPath>
       <itemPath>Obstaculo.cpp</itemPath>
       <itemPath>Partida.cpp</itemPath>
@@ -128,6 +131,7 @@
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-graphics.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-system.so</linkerLibFileItem>
             <linkerLibFileItem>/usr/lib/x86_64-linux-gnu/libsfml-window.so</linkerLibFileItem>
+            <linkerLibLibItem>sfml-audio</linkerLibLibItem>
           </linkerLibItems>
         </linkerTool>
       </compileType>
@@ -209,6 +213,10 @@
       </item>
       <item path="Municion.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Music.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Music.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="NPC.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Nave.cpp" ex="false" tool="1" flavor2="0">
@@ -274,6 +282,8 @@
       <item path="View.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources/Europa.ogx" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/spritesheet.png" ex="false" tool="3" flavor2="0">
       </item>
@@ -391,6 +401,10 @@
       </item>
       <item path="Municion.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="Music.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Music.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="NPC.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="Nave.cpp" ex="false" tool="1" flavor2="0">
@@ -456,6 +470,8 @@
       <item path="View.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cc" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="resources/Europa.ogx" ex="false" tool="3" flavor2="0">
       </item>
       <item path="resources/spritesheet.png" ex="false" tool="3" flavor2="0">
       </item>
