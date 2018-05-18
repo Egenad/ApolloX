@@ -201,8 +201,8 @@ void Partida::update(){
         for(int i=0;i<t1;i++){
             //los updateamos solo si estan dentro de la pantalla
             if((view.getCenter().getVectorY()+420)>aliens[i].getPos().getVectorY()&&(view.getCenter().getVectorY()-420)<aliens[i].getPos().getVectorY()){
-                aliens[i].Update();
                 if(aliens[i].getStateAlien() == 0){
+                    aliens[i].Update();
                     aliens[i].dispara(texture);
                     ship->golpea(aliens[i]); //si mata al alien
                 }
@@ -212,8 +212,8 @@ void Partida::update(){
         for(int i=0;i<t2;i++){
             //los updateamos solo si estan dentro de la pantalla
             if((view.getCenter().getVectorY()+420)>aliens2[i].getPos().getVectorY()&&(view.getCenter().getVectorY()-420)<aliens2[i].getPos().getVectorY()){
-                aliens2[i].Update();
                 if(aliens2[i].getStateAlien() == 0){
+                    aliens2[i].Update();
                    aliens2[i].dispara(texture);
                     ship->golpea2(aliens2[i]); //si mata al alien
                 }

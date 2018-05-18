@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /* 
  * File:   Alien2.h
  * Author: raquel
@@ -65,10 +66,13 @@ private:
     int bullet; //tipo de bala
     m2D::Clock dis;
     m2D::Clock animationClock;
+    m2D::Clock co;
     int animationState;
+    int estado;
+    bool restart;
+    bool restart2;
 };
 
 
 
 #endif /* ALIEN2_H */
-

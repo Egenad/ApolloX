@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 /* 
  * 
  * File:   Alien2.cpp
@@ -21,6 +22,9 @@ Alien2::Alien2() {
     life=1;
     stop=false;
     animationState=0;
+    estado=0;
+    restart=false;
+    restart2=false;
 }
 
 Alien2::Alien2(const Alien2& orig) {
@@ -42,6 +46,10 @@ void Alien2::setPos(int x, int y){
 }
 void Alien2::draw(){
     if(state==0){
+        if(restart2==false){
+            co.restart();
+            restart2=true;
+        }
         m2D::RenderWindow::Instance()->draw(sprite); //para dibujar el sprite (SINGLETON)
     }
     
@@ -56,7 +64,7 @@ m2D::Vector2f& Alien2::getPos(){
 }
 
 void Alien2::dispara(m2D::Texture &textura){
-    if(stop==true){
+    if(stop==true && state==0){
         if(dis.getElapsedTimeAsSeconds()>1){
             Bala *newBullet= new Bala(textura);//TAMAÑO DE BALA
             newBullet->setPos(m2D::Vector2f(sprite.getPositionX()+15,sprite.getPositionY()+20));//POSICION DE LA BALA
@@ -94,13 +102,29 @@ void Alien2::Update(){ //UPDATE DE ALIEN
         if(Nave::Instance()->getPosition().getVectorY()-400<sprite.getPositionY()){
             sprite.move(0,-4);  //stop
             stop=true;
-            if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() ){
-                sprite.move(-4,0);      //movemos izquierda
+            if(co.getElapsedTimeAsSeconds()>3 && estado==0){
+                estado=1;
+                if(restart==false){
+                    co.restart();
+                    restart=true;
+                }
             }
-            if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() ){
-                sprite.move(4,0);    //movemos derecha
+            if(estado==1){
+                if(sprite.getPositionX()<=600){
+                    sprite.move(-6,0); // se va fuera de la pantalla
+                }
+                else{
+                    sprite.move(6,0);
+                }
+
             }
-    }
+                if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() ){
+                    sprite.move(-4,0);      //movemos izquierda
+                }
+                if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() ){
+                    sprite.move(4,0);    //movemos derecha
+                }
+        }
         else{
             if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() && stop==false ){
                 sprite.move(-2,1);      //movemos izquierda
@@ -111,6 +135,9 @@ void Alien2::Update(){ //UPDATE DE ALIEN
         }
         //updateamos la pos
         this->setPos(sprite.getPositionX(),sprite.getPositionY());
+        if(sprite.getPositionX()<380 || sprite.getPositionX()>1200){
+            this->setState();
+        }
     }
 }
 
