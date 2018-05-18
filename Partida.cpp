@@ -215,7 +215,7 @@ void Partida::update(){
                 aliens2[i].Update();
                 if(aliens2[i].getStateAlien() == 0){
                    aliens2[i].dispara(texture);
-                   ship->golpea2(aliens2[i]); //si mata al alien
+                    ship->golpea2(aliens2[i]); //si mata al alien
                 }
             }
         }
@@ -225,7 +225,7 @@ void Partida::update(){
         //Coger escudo
         for(int i=0;i<ts;i++){
            if((view.getCenter().getVectorY()+420)>shell[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<shell[i].getCoord().getVectorY()){
-               
+              
                 ship->checkCollEsc(shell[i]);
                 
             }      
@@ -434,7 +434,6 @@ void Partida::Init(int i){
     int cont2=0;
     int cont3=0;
     
-    int* enemiesB=new int[t2];
     int ran3=rand()%100;
     meteor=new Meteorito[t3]; //meteoritos
     aliens=new Alien[t1]; //aliens
@@ -453,7 +452,7 @@ void Partida::Init(int i){
     municion[3].setType(4);
     municion[4].setType(1);
     
-    int total=totalEnemies+ts+tm;
+    int total=ts+tm;
     
     int intS = total/(ts+1);
     int intM = total / (tm+1);
@@ -468,7 +467,7 @@ void Partida::Init(int i){
 
                 int x1=rand() % 585;
                 x1=x1+475;
-                int y1 =(length/total)*i;
+                int y1 =(length/totalEnemies)*i;
                 aliens[cont1].setPos(x1,-y1-860);
                 aliens[cont1].setTexture(texture);
                 cont1++;
@@ -483,7 +482,7 @@ void Partida::Init(int i){
             }else if(cont3<t3){
                 int x=rand() % 585;
                 x=x+475;
-                int y =(length/total)*i;
+                int y =(length/totalEnemies)*i;
                 meteor[cont3].setCoord(x,-y-860);
                 meteor[cont3].setTexture(texture);
                 cont3++;
@@ -494,14 +493,14 @@ void Partida::Init(int i){
             if(cont2<t2){
                 int x1=rand() % 585;
                 x1=x1+475;
-                int y1 =(length/total)*i;
+                int y1 =(length/totalEnemies)*i;
                 aliens2[cont2].setPos(x1,-y1-860);
                 aliens2[cont2].setTexture(texture);
                 cont2++;
             }else if(cont3<t3){
                 int x=rand() % 585;
                 x=x+475;
-                int y =(length/total)*i;
+                int y =(length/totalEnemies)*i;
                 meteor[cont3].setCoord(x,-y-860);
                 meteor[cont3].setTexture(texture);
                 cont3++;
@@ -510,7 +509,7 @@ void Partida::Init(int i){
 
                 int x1=rand() % 585;
                 x1=x1+475;
-                int y1 =(length/total)*i;
+                int y1 =(length/totalEnemies)*i;
                 aliens[cont1].setPos(x1,-y1-860);
                 aliens[cont1].setTexture(texture);
                 cont1++;
@@ -520,7 +519,7 @@ void Partida::Init(int i){
             if(cont3<t3){
                 int x=rand() % 585;
                 x=x+475;
-                int y =(length/total)*i;
+                int y =(length/totalEnemies)*i;
                 meteor[cont3].setCoord(x,-y-860);
                 meteor[cont3].setTexture(texture);
                 cont3++;
@@ -529,14 +528,14 @@ void Partida::Init(int i){
 
                 int x1=rand() % 585;
                 x1=x1+475;
-                int y1 =(length/total)*i;
+                int y1 =(length/totalEnemies)*i;
                 aliens[cont1].setPos(x1,-y1-860);
                 aliens[cont1].setTexture(texture);
                 cont1++;
             }else if(cont2<t2){
                 int x1=rand() % 585;
                 x1=x1+475;
-                int y1 =(length/total)*i;
+                int y1 =(length/totalEnemies)*i;
                 aliens2[cont2].setPos(x1,-y1-860);
                 aliens2[cont2].setTexture(texture);
                 cont2++;
@@ -544,10 +543,9 @@ void Partida::Init(int i){
         }
         
     }
-    int totalO=ts+tm;
-    int intO = total/(totalO+1);
+    
     srand(time(NULL));
-    for(int i=0;i<totalO;i++){
+    for(int i=0;i<total;i++){
         int a=rand() % 9;
         if(a>=0&&a<=5){
             //creamos enemigo A
@@ -555,20 +553,20 @@ void Partida::Init(int i){
                 int x1=rand() % 585;
                 x1=x1+475;
 
-                int y1 =(length/totalO)*intO;
+                int y1 =(length/total)*i;
                 municion[contm].setPos(x1,-y1-860);
                 municion[contm].setTexture(texture);
                 contm++;
-                intO = intO + total/(totalO+1);
+                //intM = intM + total/(tm+1);
             }else if(conts<ts){
                 int x1=rand() % 585;
                 x1=x1+475;
 
-                int y1 =(length/totalO)*intO;
+                int y1 =(length/total)*i;
                 shell[conts].setCoord(x1,-y1-860);
                 shell[conts].setTexture(texture);
                 conts++;
-                intO = intO + total/(totalO+1);
+                //intS = intS + total/(ts+1);
 
             }
 
