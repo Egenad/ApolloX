@@ -44,7 +44,6 @@ Partida::Partida() {
    //inicializamos todo
     score=0;
     state=0;
-    
     texture.setLoadFromFile("resources/nivel.png");
     
     background=new m2D::Sprite[3];
@@ -390,7 +389,15 @@ void Partida::moveBackground(){
 
 void Partida::Init(int i){
     
+    
     mode=0;
+    
+    //musica
+    music.openFromFile("resources/Buoy_Base.ogg");
+    music.setLoop(true);
+    music.setVolumen(10);
+    music.play();
+    //-----------------------------------
     
     FactoriaNivel* fLvl = FactoriaNivel::Instance();
 
@@ -604,6 +611,13 @@ void Partida::Init(int i){
 void Partida::Infinite(){
     
     mode=1;
+    
+    //musica
+    music.openFromFile("resources/Buoy_Base.ogg");
+    music.setLoop(true);
+    music.setVolumen(10);
+    music.play();
+    //-----------------------------------
     
     FactoriaNivel* fLvl = FactoriaNivel::Instance();
 

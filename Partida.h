@@ -27,6 +27,7 @@
 #include "Alien2.h"
 #include "Material.h"
 #include "Municion.h"
+#include "Music.h"
 
 #ifndef PARTIDA_H
 #define PARTIDA_H
@@ -111,6 +112,9 @@ private:
     m2D::Font font;
     m2D::Text* text;
     m2D::Sprite* lifeS;
+    
+    //musica
+    m2D::Music music;
     
 };
 
