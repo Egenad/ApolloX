@@ -18,6 +18,7 @@
 
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include <SFML/Audio.hpp>
 
 namespace m2D{
     class Motor2D {

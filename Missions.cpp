@@ -103,10 +103,12 @@ void Missions::handleInput(){
                 //mission3
             }else if(seleccionado==2){
                 //mission2
+                Menu::Instance()->pausarMusica();
                 Game::Instance()->setState(Partida::Instance());
                 Partida::Instance()->Init(2);
             }else if(seleccionado==1){
                 //mision1
+                Menu::Instance()->pausarMusica();
                 Game::Instance()->setState(Partida::Instance());
                 Partida::Instance()->Init(1);
             }

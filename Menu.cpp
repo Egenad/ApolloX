@@ -50,6 +50,7 @@ void Menu::handleInput(){
                 Base::Instance()->reduceLifeBar();
             }else if(seleccionado==2){
                 //infinito
+                music.pause();
                 Game::Instance()->setState(Partida::Instance());
                 Partida::Instance()->Infinite();
             }else if(seleccionado==1){
@@ -135,6 +136,11 @@ Menu::Menu() {
     sprites[5].setTextureRect(0,1080,730,640);
     sprites[5].setPosition((1535/2)+30,(860/2)+120);
     sprites[5].scale(0.7,0.7);
+    
+    //musica menu
+    music.openFromFile("resources/Europa.ogx");
+    music.setLoop(true);
+    music.play();
 }
 
 void Menu::up(){
@@ -193,5 +199,9 @@ void Menu::resetSelected(){
     sprites[1].setTextureRect(740,1350,400,130);
     sprites[2].setTextureRect(740,1085,400,130);
     sprites[3].setTextureRect(1575,1220,400,130);
+}
+
+void Menu::pausarMusica(){
+    music.pause();
 }
 

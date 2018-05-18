@@ -19,6 +19,7 @@
 #include "Sprite.h"
 #include "Estado.h"
 #include "Texture.h"
+#include "Music.h"
 
 class Menu : public Estado {
 public:
@@ -29,6 +30,7 @@ public:
     void up();
     void down();
     void resetSelected();
+    void pausarMusica();
 protected:
     Menu();
     Menu(const Menu& orig);
@@ -38,6 +40,7 @@ private:
     m2D::Sprite* sprites;
     m2D::Texture texture;
     static Menu* pinstance;
+    m2D::Music music;
 
 };
 
