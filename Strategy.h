@@ -19,6 +19,7 @@
 class Strategy {
 public:
     virtual void execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D::Texture& texture, m2D::Vector2f& position) = 0;
+    virtual void draw(m2D::Sprite& sprite,m2D::Vector2f& position)=0;
 private:
 
 };

@@ -19,6 +19,7 @@ class StrategyB : public Strategy{
 public:
     StrategyB();
     void execute(m2D::Sprite&, std::vector<Bala*>&, m2D::Texture&, m2D::Vector2f& position);
+    void draw(m2D::Sprite&,m2D::Vector2f& position);
 private:
     m2D::Clock timer;
     bool reset_fase;
@@ -35,6 +36,8 @@ private:
     bool comp2;
     bool comp3;
     bool comp4;
+    int x;
+    int y;
 };
 #endif
 

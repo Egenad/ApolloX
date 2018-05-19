@@ -20,6 +20,7 @@ class StrategyA : public Strategy{
 public:
     StrategyA();
     void execute(m2D::Sprite&, std::vector<Bala*>&, m2D::Texture&, m2D::Vector2f& position);
+    void draw(m2D::Sprite&,m2D::Vector2f& position);
 private:
     bool movido;
     float centro;
@@ -28,6 +29,8 @@ private:
     m2D::Clock temporizador;
     m2D::Clock primer_ataque;
     bool initied;
+    int x;
+    int y;
 };
 #endif 
 

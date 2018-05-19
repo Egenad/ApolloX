@@ -36,3 +36,6 @@ void StrategyC::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
         temporizador.restart();
     }
 }
+
+void StrategyC::draw(m2D::Sprite& sprite,m2D::Vector2f& position){
+}

@@ -16,6 +16,8 @@
 #include "Nave.h"
 #include <math.h>
 #include <iostream>
+#include "Game.h"
+
 
 #define PI 3.14159265
 
@@ -31,18 +33,24 @@ StrategyB::StrategyB(){
     comp2 = false;
     comp3 = false;
     comp4 = false;
+    x=0;
+    y=0;
 }
 
 void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D::Texture& texture, m2D::Vector2f& position){
     if(reset_fase == true){//paso de la fase A a la B
         if(sprite.getPositionX() < 765){//se encuentra por la izquierda
-            position.setVectorX(position.getVectorX() + 1);
+            x=10;
+            y=0;
+            position.setVectorX(position.getVectorX() + x);
             position.setVectorY(position.getVectorY());
             sprite.setPosition(position.getVectorX(),position.getVectorY());
         }
         else{
             if(sprite.getPositionX() > 765){//se encuentra por la derecha
-                position.setVectorX(position.getVectorX() - 1);
+                x=-10;
+                y=0;
+                position.setVectorX(position.getVectorX() +x);
                 position.setVectorY(position.getVectorY());
                 sprite.setPosition(position.getVectorX(),position.getVectorY());
             }
@@ -78,7 +86,9 @@ void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
                     //en movimiento
                     if(lastmove == 1){
                         if(sprite.getPositionX() < 1100){
-                            position.setVectorX(position.getVectorX() + 1);
+                            x=10;
+                            y=0;
+                            position.setVectorX(position.getVectorX() + x);
                             position.setVectorY(position.getVectorY());
                             sprite.setPosition(position.getVectorX(),position.getVectorY());
                         }
@@ -90,7 +100,9 @@ void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
                     }
                     else{
                         if(sprite.getPositionX() > 500){
-                            position.setVectorX(position.getVectorX() - 1);
+                            x=-10;
+                            y=0;
+                            position.setVectorX(position.getVectorX() +x);
                             position.setVectorY(position.getVectorY());
                             sprite.setPosition(position.getVectorX(),position.getVectorY());
                         }
@@ -104,7 +116,9 @@ void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
             }else{//me muevo de un lado al centro
                 if(lastmove == 1){
                     if(sprite.getPositionX() > 765){
-                        position.setVectorX(position.getVectorX() - 1);
+                        x=-10;
+                        y=0;
+                        position.setVectorX(position.getVectorX() +x);
                         position.setVectorY(position.getVectorY());
                         sprite.setPosition(position.getVectorX(),position.getVectorY());
                     }
@@ -116,7 +130,9 @@ void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
                 else{
                     if(lastmove == 2){
                         if(sprite.getPositionX() < 765){
-                            position.setVectorX(position.getVectorX() + 1);
+                            x=10;
+                            y=0;
+                            position.setVectorX(position.getVectorX() + x);
                             position.setVectorY(position.getVectorY());
                             sprite.setPosition(position.getVectorX(),position.getVectorY());
                         }
@@ -334,4 +350,12 @@ void StrategyB::execute(m2D::Sprite& sprite, std::vector<Bala*>& balas_jefe, m2D
             comp4 = false;
         }
     } 
+}
+
+void StrategyB::draw(m2D::Sprite& sprite,m2D::Vector2f& position){
+    if(Game::Instance()->getP()<1){
+            float posY=position.getVectorY()*(1-Game::Instance()->getP())+(position.getVectorY()+x)*Game::Instance()->getP();
+            float posX=position.getVectorX()*(1-Game::Instance()->getP())+(position.getVectorX()+y)*Game::Instance()->getP();
+            sprite.setPosition(posX,posY);
+        }
 }

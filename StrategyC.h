@@ -20,9 +20,11 @@ class StrategyC : public Strategy{
 public:
     StrategyC();
     void execute(m2D::Sprite&, std::vector<Bala*>&, m2D::Texture&, m2D::Vector2f& position);
+    void draw(m2D::Sprite&,m2D::Vector2f& position);
 private:
     bool state;
     m2D::Clock temporizador;
+    
 };
 
 #endif /* STRATEGYC_H */
