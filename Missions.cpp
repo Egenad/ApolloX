@@ -108,20 +108,28 @@ void Missions::handleInput(){
             if(seleccionado==4){
                 //atras
                 Game::Instance()->setState(Menu::Instance());
+                this->resetSelected();
             }else if(seleccionado==3 && desbloq[2] == 1){
                 //mission3
+                if(Nave::Instance()->getLife()>0){
+                
+                }
             }else if(seleccionado==2 && desbloq[1] == 1){
                 //mission2
-                Menu::Instance()->stopMusica();
-                Game::Instance()->setState(Partida::Instance());
-                Partida::Instance()->Init(2);
-                this->resetSelected();
+                if(Nave::Instance()->getLife()>0){
+                    Menu::Instance()->stopMusica();
+                    Game::Instance()->setState(Partida::Instance());
+                    Partida::Instance()->Init(2);
+                    this->resetSelected();
+                }
             }else if(seleccionado==1){
                 //mision1
-                Menu::Instance()->stopMusica();
-                Game::Instance()->setState(Partida::Instance());
-                Partida::Instance()->Init(1);
-                this->resetSelected();
+                if(Nave::Instance()->getLife()>0){
+                    Menu::Instance()->stopMusica();
+                    Game::Instance()->setState(Partida::Instance());
+                    Partida::Instance()->Init(1);
+                    this->resetSelected();
+                }
             }     
         }else if(event.getEventType()== sf::Event::KeyPressed && event.getKey() == sf::Keyboard::Down){
             this->down();
@@ -138,7 +146,7 @@ void Missions::handleInput(){
         }
         if( sf::Keyboard::isKeyPressed( sf::Keyboard::A)){
              desbloq[1] = 1;
-         }
+        }
     }
 }
 
