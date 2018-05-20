@@ -255,6 +255,16 @@ void Partida::update(){
            if((view.getCenter().getVectorY()+420)>municion[i].getCoord().getVectorY()&&(view.getCenter().getVectorY()-420)<municion[i].getCoord().getVectorY()){
                 if(ship->checkCollMunition(municion[i])){
                     municion[i].setState(0);
+                    //cambiamos mensaje
+                    if(municion[i].getType()==1){
+                        text[4].setString("normal");
+                    }else if(municion[i].getType()==2){
+                        text[4].setString("rafaga");
+                    }else if(municion[i].getType()==3){
+                        text[4].setString("laser");
+                    }else if(municion[i].getType()==4){
+                        text[4].setString("bomba");
+                    }
                 }
             }      
         }
