@@ -57,6 +57,7 @@ public:
     int getMode();
     int getScore();
     int getLength();
+    void setStartI();
 protected:
     Partida();
     Partida(const Partida& orig);

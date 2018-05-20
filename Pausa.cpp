@@ -102,6 +102,7 @@ void Pausa::handleInput(){
                             Partida::Instance()->saveLife();
                             Game::Instance()->setState(Missions::Instance());
                         }else{
+                            Partida::Instance()->setStartI();
                             Game::Instance()->setState(Menu::Instance()); 
                         }
                         

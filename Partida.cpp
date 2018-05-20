@@ -45,7 +45,7 @@ Partida::Partida() {
     ship = Nave::Instance();
     ship->setTexture(texture);
     mode=-1;
-    
+    startI=0;
     this->inicializar();
 }
 
@@ -689,12 +689,13 @@ void Partida::Infinite(){
     ss5 << jeff;
     ss5>>t4;
     
-    if(ship->getPosition().getVectorY()==0){
+    if(startI==0){
         //Empieza
         std::cout<<"Empieza modo infinito"<<std::endl;
         this->inicializar();
         
         length=path;
+        startI=1;
     }else{
         std::cout<<"Continuamos modo infinito" << std::endl;
         length=length+path;
@@ -1092,4 +1093,8 @@ int Partida::getScore(){
 
 int Partida::getLength(){
     return length;
+}
+
+void Partida::setStartI(){
+    startI=0;
 }
