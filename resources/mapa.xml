@@ -1,0 +1,62 @@
+<? xml version="1.0" ?>
+<ApolloX>
+	<Nivel1>
+	   <Mapa>10000</Mapa>
+	   <Enemigos>
+	      <Alien1> 10 </Alien1>
+	      <Alien2> 6 </Alien2>
+	      <Meteorito> 8 </Meteorito>
+	   </Enemigos>
+	   <Escudos>
+	      <Total> 5 </Total>
+	      <Intervalo> 100 </Intervalo>
+	   </Escudos>
+	   <Municion>
+	      <Normal> 3 </Normal>
+	      <Rafaga> 2 </Rafaga>
+	      <Bomba> 1 </Bomba>
+	      <Canyon> 1 </Canyon>
+           </Municion>
+	   <Jefe>1</Jefe>
+	</Nivel1>
+
+	<Nivel2>
+	   <Mapa>20000</Mapa>
+	   <Enemigos>
+	      <Alien1> 10 </Alien1>
+	      <Alien2> 6 </Alien2>
+	      <Meteorito> 8 </Meteorito>
+	   </Enemigos>
+	   <Escudos>
+	      <Total> 5 </Total>
+	      <Intervalo> 100 </Intervalo>
+	   </Escudos>
+	   <Municion>
+	      <Normal> 3 </Normal>
+	      <Rafaga> 2 </Rafaga>
+	      <Bomba> 1 </Bomba>
+	      <Canyon> 1 </Canyon>
+           </Municion>
+	   <Jefe>2</Jefe>
+	</Nivel2>
+	
+	<Nivel3>
+	   <Mapa>30000</Mapa>
+	   <Enemigos>
+	      <Alien1> 10 </Alien1>
+	      <Alien2> 6 </Alien2>
+	      <Meteorito> 8 </Meteorito>
+	   </Enemigos>
+	   <Escudos>
+	      <Total> 5 </Total>
+	      <Intervalo> 100 </Intervalo>
+	   </Escudos>
+	   <Municion>
+	      <Normal> 3 </Normal>
+	      <Rafaga> 2 </Rafaga>
+	      <Bomba> 1 </Bomba>
+	      <Canyon> 1 </Canyon>
+           </Municion>
+	   <Jefe>3</Jefe>
+	</Nivel3>
+</ApolloX>
