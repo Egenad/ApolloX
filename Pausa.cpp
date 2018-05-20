@@ -174,3 +174,10 @@ void Pausa::resetSelected(){
     sprites[1].setTextureRect(790,1615,400,130);
     sprites[2].setTextureRect(1575,1085,400,130);
 }
+
+void Pausa::Thanos(){
+    if(pinstance!=0){
+        intro.close();
+        button.close();
+    }
+}

@@ -38,6 +38,7 @@ public:
     void right();
     void left();
     void resetSelected();
+    void Thanos();
 protected:
     Resultado();
     Resultado(const Resultado& orig);

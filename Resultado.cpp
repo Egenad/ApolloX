@@ -199,3 +199,10 @@ void Resultado::resetSelected(){
     sprites[1].setTextureRect(740,1350,400,130);
     sprites[2].setTextureRect(1575,1085,400,130);
 }
+
+void Resultado::Thanos(){
+    if(pinstance!=0){
+        intro.close();
+        button.close();
+    }
+}

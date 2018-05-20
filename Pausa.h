@@ -34,6 +34,7 @@ public:
     void up();
     void down();
     void resetSelected();
+    void Thanos();
     
 protected:
     Pausa();

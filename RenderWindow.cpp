@@ -15,6 +15,8 @@
 #include "Base.h"
 #include "Menu.h"
 #include "Missions.h"
+#include "Pausa.h"
+#include "Resultado.h"
 
 namespace m2D{
     
@@ -49,6 +51,8 @@ namespace m2D{
         Base::Instance()->Thanos();
         Menu::Instance()->Thanos();
         Missions::Instance()->Thanos();
+        Pausa::Instance()->Thanos();
+        Resultado::Instance()->Thanos();
         window.close();
     }
     void RenderWindow::display(){
