@@ -35,7 +35,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/71c3c6ef/StrategyB2.o \
 	${OBJECTDIR}/Agente.o \
 	${OBJECTDIR}/Alien.o \
 	${OBJECTDIR}/Alien2.o \
@@ -66,6 +65,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/StrategyA.o \
 	${OBJECTDIR}/StrategyA2.o \
 	${OBJECTDIR}/StrategyB.o \
+	${OBJECTDIR}/StrategyB2.o \
 	${OBJECTDIR}/StrategyC.o \
 	${OBJECTDIR}/Text.o \
 	${OBJECTDIR}/Texture.o \
@@ -97,16 +97,11 @@ LDLIBSOPTIONS=
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.0
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.0: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.0 ${OBJECTFILES} ${LDLIBSOPTIONS}
-
-${OBJECTDIR}/_ext/71c3c6ef/StrategyB2.o: ../ApolloX-1.10/StrategyB2.cpp
-	${MKDIR} -p ${OBJECTDIR}/_ext/71c3c6ef
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/71c3c6ef/StrategyB2.o ../ApolloX-1.10/StrategyB2.cpp
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Agente.o: Agente.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -257,6 +252,11 @@ ${OBJECTDIR}/StrategyB.o: StrategyB.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StrategyB.o StrategyB.cpp
+
+${OBJECTDIR}/StrategyB2.o: StrategyB2.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/StrategyB2.o StrategyB2.cpp
 
 ${OBJECTDIR}/StrategyC.o: StrategyC.cpp
 	${MKDIR} -p ${OBJECTDIR}
