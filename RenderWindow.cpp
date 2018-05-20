@@ -12,6 +12,9 @@
  */
 
 #include "RenderWindow.h"
+#include "Base.h"
+#include "Menu.h"
+#include "Missions.h"
 
 namespace m2D{
     
@@ -43,6 +46,9 @@ namespace m2D{
         window.clear();
     }
     void RenderWindow::close(){
+        Base::Instance()->Thanos();
+        Menu::Instance()->Thanos();
+        Missions::Instance()->Thanos();
         window.close();
     }
     void RenderWindow::display(){

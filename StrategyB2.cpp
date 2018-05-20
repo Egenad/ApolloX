@@ -11,6 +11,7 @@
  * Created on 20 de mayo de 2018, 12:16
  */
 
+
 #include "StrategyB2.h"
 #include "Nave.h"
 StrategyB2::StrategyB2(){
