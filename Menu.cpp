@@ -226,3 +226,9 @@ void Menu::stopMusica(){
     music.stop();
 }
 
+void Menu::Thanos(){
+    music.close();
+    intro.close();
+    button.close();
+}
+

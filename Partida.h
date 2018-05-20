@@ -58,6 +58,7 @@ public:
     int getScore();
     int getLength();
     void setStartI();
+    void Thanos();
 protected:
     Partida();
     Partida(const Partida& orig);

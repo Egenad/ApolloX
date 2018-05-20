@@ -33,6 +33,7 @@ public:
     void left();
     void setDesbloq();
     void resetSelected();
+    void Thanos();
     
 protected:
     Missions();
