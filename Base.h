@@ -34,6 +34,7 @@ public:
     void reduceLifeBar();
     void checkMaterialsNedeed();
     void reparar();
+    void Thanos();
 protected:
     Base();
     Base(const Base& orig);

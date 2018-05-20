@@ -34,6 +34,7 @@ public:
     void pausarMusica();
     void playMusica();
     void stopMusica();
+    void Thanos();
 protected:
     Menu();
     Menu(const Menu& orig);

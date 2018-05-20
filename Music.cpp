@@ -54,7 +54,9 @@ namespace m2D{
         music.stop();
     }
     
-    
+    void Music::close(){
+       music.~Music();
+    }
     
 
 }

@@ -243,4 +243,12 @@ void Missions::resetSelected(){
     sprites[4].setTextureRect(1575,1085,400,130);
 }
 
+void Missions::Thanos(){
+    if(pinstance!=0){
+        Partida::Instance()->Thanos();
+        intro.close();
+        button.close();
+    }
+}
+
 

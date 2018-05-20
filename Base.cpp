@@ -362,4 +362,9 @@ Base::Base(const Base& orig) {
 Base::~Base() {
 }
 
+void Base::Thanos(){
+    intro.close();
+    button.close();
+}
+
 

@@ -1098,3 +1098,6 @@ int Partida::getLength(){
 void Partida::setStartI(){
     startI=0;
 }
+void Partida::Thanos(){
+        music.close();
+}

@@ -30,6 +30,8 @@ namespace m2D{
         void setVolumen(float vol);
         void pause();
         void stop();
+        void close();
+
     private:
         sf::Music music;
     };
