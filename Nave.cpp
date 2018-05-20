@@ -35,6 +35,8 @@ Nave* Nave::Instance(){
 
 
 Nave::Nave (){
+    right=false;
+    left=false;
     position.setVectorX(1535/2);
     position.setVectorY(0);
     state=2;
@@ -210,6 +212,30 @@ void Nave::draw(){
 }
 
 void Nave::update(){
+    //move 
+    if(right){//movemos derecha
+        if(position.getVectorX()<1150){ //1059
+            this->setPosition(position.getVectorX()+velocity+5,position.getVectorY());
+        }
+    }
+    
+    if(left){//movemos izquierda
+        if(position.getVectorX()>375){ //475
+            this->setPosition(position.getVectorX()-velocity-5,position.getVectorY());
+        }
+    }
+    
+    if(down){//movemos abajo
+        if(position.getVectorY()<-(Partida::Instance()->getLength()+820)){
+            this->setPosition(position.getVectorX(),position.getVectorY()+velocity+5);
+        }
+    }
+    if(up){//movemos arriba
+        if(position.getVectorY()>-(Partida::Instance()->getLength()+1600)){
+            this->setPosition(position.getVectorX(),position.getVectorY()-velocity-5);
+        }
+    }
+    
     //cambiamos animacion
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
         if(animationType==0){
@@ -299,6 +325,29 @@ void Nave::update(){
 }
 
 void Nave::update2(){
+    //move 
+    if(right){//movemos derecha
+        if(position.getVectorX()<1150){ //1059
+            this->setPosition(position.getVectorX()+velocity+5,position.getVectorY());
+        }
+    }
+    
+    if(left){//movemos izquierda
+        if(position.getVectorX()>375){ //475
+            this->setPosition(position.getVectorX()-velocity-5,position.getVectorY());
+        }
+    }
+    
+    if(down){//movemos abajo
+        if(position.getVectorY()<-(Partida::Instance()->getLength()+820)){
+            this->setPosition(position.getVectorX(),position.getVectorY()+velocity+5);
+        }
+    }
+    if(up){//movemos arriba
+        if(position.getVectorY()>-(Partida::Instance()->getLength()+1600)){
+            this->setPosition(position.getVectorX(),position.getVectorY()-velocity-5);
+        }
+    }
     //cambiamos animacion
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
         if(animationType==0){
@@ -563,4 +612,19 @@ void Nave::borrarBalas(){
         delete vectorBalas[i];
         vectorBalas.erase(vectorBalas.begin()+i);  
     }
+}
+
+void Nave::ismovingRight(bool b){
+    right=b;
+}
+
+void Nave::ismovingLeft(bool b){
+    left=b;
+}
+
+void Nave::ismovingUp(bool b){
+    up=b;
+}
+void Nave::ismovingDown(bool b){
+    down=b;
 }

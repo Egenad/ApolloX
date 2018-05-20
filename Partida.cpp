@@ -162,20 +162,45 @@ void Partida::handleInput(){
            m2D::RenderWindow::Instance()->close();
         }
          if( sf::Keyboard::isKeyPressed( sf::Keyboard::Left)){
-             ship->moveLeft();
+             ship->ismovingLeft(true);
          }
          if( sf::Keyboard::isKeyPressed( sf::Keyboard::Right)){
-             ship->moveRight();
+             ship->ismovingRight(true);
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Up)){
+             ship->ismovingUp(true);
+         }
+         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Down)){
+             ship->ismovingDown(true);
          }
          if( sf::Keyboard::isKeyPressed( sf::Keyboard::Space)){
             if(state == 0){
                 ship->disparar(texture);
             }
          }
+        if(event.getEventType()==sf::Event::KeyReleased){
+            if(event.getKey()==sf::Keyboard::Left){
+                ship->ismovingLeft(false);
+            }
+            if(event.getKey()==sf::Keyboard::Right){
+                ship->ismovingRight(false);
+            }
+            if(event.getKey()==sf::Keyboard::Down){
+                if(state==1){
+                    ship->ismovingDown(false);
+                }
+            }
+            if(event.getKey()==sf::Keyboard::Up){
+                if(state==1){
+                    ship->ismovingUp(false);
+                }
+            }
+        }
+        
          if( sf::Keyboard::isKeyPressed( sf::Keyboard::Escape)){
              Game::Instance()->setState(Pausa::Instance());
          }
-         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Up)){
+         /*if( sf::Keyboard::isKeyPressed( sf::Keyboard::Up)){
              if(state==1 && wait.getElapsedTimeAsSeconds() > 2){
                  ship->moveUp();
              }
@@ -184,7 +209,7 @@ void Partida::handleInput(){
              if(state==1 && wait.getElapsedTimeAsSeconds() > 2){
                  ship->moveDown();
              }
-         }
+         }*/
     }    //Si pulsamos cursor izquierda
 }
 

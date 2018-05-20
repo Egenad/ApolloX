@@ -70,7 +70,10 @@ public:
     int getShipLife();
     void saveLife(int);
     void borrarBalas();
-    
+    void ismovingRight(bool b);
+    void ismovingLeft(bool b);
+    void ismovingUp(bool b);
+    void ismovingDown(bool b);
 protected:
     Nave ();
     Nave(const Nave& orig);
@@ -100,7 +103,13 @@ private:
     bool explosion;
     bool bomb_alive;
     m2D::Clock cb_time;
-    m2D::Clock tiempo_entre_balas;  
+    m2D::Clock tiempo_entre_balas; 
+    
+    //CONTROLES
+    bool right;
+    bool left;
+    bool up;
+    bool down;
 };
 
 #endif /* NAVE_H */
