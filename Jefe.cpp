@@ -20,6 +20,7 @@
 
 Jefe::Jefe() {
     fase = 0;
+    scoreup=false;
     maxLife = 0;
     life = 0;
     type = 0;
@@ -177,8 +178,11 @@ void Jefe::updateVida(m2D::Texture& texture){
         else{
             Missions::Instance()->setDesbloq();
             Nave::Instance()->saveLife(Nave::Instance()->getLife());
+            Partida::Instance()->aumentScore(1400);
             Resultado::Instance()->setScore(Partida::Instance()->getScore());
             Game::Instance()->setState(Resultado::Instance());
+            Partida::Instance()->stopMusica();
+            Menu::Instance()->playMusica();
         }
     }
 }
@@ -213,8 +217,9 @@ void Jefe::update(m2D::Texture& texture){
         }
     }
     this->updateVida(texture);
-    if(life > 0){
+    if(life > 0 && scoreup==false){
         this->changeSprite();
+        scoreup=true;
     }
     this->atacar(texture);
     

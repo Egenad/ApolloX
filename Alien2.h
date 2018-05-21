@@ -52,9 +52,7 @@ public:
     void animation();
     m2D::Sprite& getShape();
     
-    int getTipo();
 private:
-    int type;
     int life;
     m2D::Sprite sprite;
     m2D::Texture texture;

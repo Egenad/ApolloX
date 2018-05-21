@@ -150,7 +150,7 @@ Menu::Menu() {
     
     intro.openFromFile("resources/button-34.ogg");
     intro.setLoop(false);
-    intro.setVolumen(100);
+    intro.setVolumen(75);
 }
 
 void Menu::up(){

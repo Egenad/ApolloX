@@ -25,17 +25,17 @@ Meteorito::Meteorito() {
         rot=-1;
     }
     if(ran1>80){ //grande
-        std::cout << "grande "<<std::endl;
+
         vely=3;
         size=1;
     }
     else if(ran1>30 && ran1<=80){ //mediano
-        std::cout << "med "<<std::endl;
+
         vely=8;
         size=2;
     }
     else if(ran1<=30){ //pequeño
-        std::cout << "peq "<<std::endl;
+
         size=0;
     }
     

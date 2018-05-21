@@ -17,7 +17,6 @@
 #include "Game.h"
 
 Alien2::Alien2() {
-    type=(rand()%3)+1; //tipo de movimiento
     state=0;
     life=1;
     stop=false;
@@ -101,20 +100,17 @@ void Alien2::dibujaBalas(){
         }
 }
 
-int Alien2::getTipo(){
-    return type;
-}
-
 void Alien2::Update(){ //UPDATE DE ALIEN
     if(state==0){
         
         this->animation();
         if(Nave::Instance()->getPosition().getVectorY()-400<sprite.getPositionY()){
+            //cuando entra en el rango de la nave
             //sprite.move(0,-4);  //stop
-            x=0;
-            y=-20; //-4
+            //x=0;
+            //y=-10; //-4
             stop=true;
-            if(co.getElapsedTimeAsSeconds()>3 && estado==0){
+            if(co.getElapsedTimeAsSeconds()>3 && estado==0){//se para delante de la nave
                 estado=1;
                 if(restart==false){
                     co.restart();
@@ -122,44 +118,48 @@ void Alien2::Update(){ //UPDATE DE ALIEN
                 }
             }
             if(estado==1){
-                if(sprite.getPositionX()<=600){
+                if(sprite.getPositionX()<=700){
                     //sprite.move(-6,0); // se va fuera de la pantalla
-                    x=-10; //-6
-                    y=-5;
+                    x=-6; //-6
+                    y=-15;
                    
                 }
                 else{
                     //sprite.move(6,0);
-                    x=10; //6
-                    y=-5;
-                    
-                }
-
-            }else{
-                if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() ){
-                    //sprite.move(-4,0);      //movemos izquierda
-                    x=-6; //-4
+                    x=6; //6
                     y=-15;
                     
                 }
-                if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() ){
+
+            }else{ //movimiento para seguir a la nave una vez que se plante delante de ella
+                if(Nave::Instance()->getPosition().getVectorX()<=sprite.getPositionX() ){
+                    //sprite.move(-4,0);      //movemos izquierda
+                    x=-5; //-4
+                    y=-15;
+                    
+                }
+                else if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() ){
                     //sprite.move(4,0);    //movemos derecha
-                    x=6; //4
+                    x=5; //4
                     y=-15;
                 }
             }
         }
-        else{
-            if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() && stop==false ){
-                //sprite.move(-2,1);      //movemos izquierda
-                x=-15; //-2
-                y=15; //1
-                
+        else{ //movimiento cuando respawnea
+            if(Nave::Instance()->getPosition().getVectorX()+50>sprite.getPositionX()&& Nave::Instance()->getPosition().getVectorX()-50<sprite.getPositionX() && stop ==false){
+                //sprite.move(2,1);    //movemos dentro
+                x=0; //2
+                y=5; //2
             }
-            if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() && stop ==false){
+            else if(Nave::Instance()->getPosition().getVectorX()<sprite.getPositionX() && stop==false ){
+                //sprite.move(-2,1);      //movemos izquierda
+                x=-10; //-2
+                y=5; //1 
+            }
+            else if(Nave::Instance()->getPosition().getVectorX()>sprite.getPositionX() && stop ==false){
                 //sprite.move(2,1);    //movemos derecha
-                x=15; //2
-                y=15; //2
+                x=10; //2
+                y=5; //2
             }
         }
         //updateamos la pos

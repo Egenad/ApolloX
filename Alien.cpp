@@ -154,8 +154,8 @@ void Alien::quitarVida(){
     life = life - 50;
     if(life<=0){
         sprite.setPosition(10000,10000);
+        std::cout<<"muero"<<std::endl;
     }
-    std::cout <<"DAÑOOOOO!!" <<std::endl;
 }
 
 int Alien::getVida(){
