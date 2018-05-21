@@ -1,11 +1,11 @@
 <? xml version="1.0" ?>
 <ApolloX>
 	<Nivel1>
-	   <Mapa>10000</Mapa>
+	   <Mapa>15000</Mapa>
 	   <Enemigos>
-	      <Alien1> 10 </Alien1>
-	      <Alien2> 6 </Alien2>
-	      <Meteorito> 8 </Meteorito>
+	      <Alien1> 15 </Alien1>
+	      <Alien2> 10 </Alien2>
+	      <Meteorito> 15 </Meteorito>
 	   </Enemigos>
 	   <Escudos>
 	      <Total> 5 </Total>
@@ -23,9 +23,9 @@
 	<Nivel2>
 	   <Mapa>20000</Mapa>
 	   <Enemigos>
-	      <Alien1> 10 </Alien1>
-	      <Alien2> 6 </Alien2>
-	      <Meteorito> 8 </Meteorito>
+	      <Alien1> 20 </Alien1>
+	      <Alien2> 16 </Alien2>
+	      <Meteorito> 20 </Meteorito>
 	   </Enemigos>
 	   <Escudos>
 	      <Total> 5 </Total>
@@ -33,8 +33,8 @@
 	   </Escudos>
 	   <Municion>
 	      <Normal> 3 </Normal>
-	      <Rafaga> 2 </Rafaga>
-	      <Bomba> 1 </Bomba>
+	      <Rafaga> 1 </Rafaga>
+	      <Bomba> 2 </Bomba>
 	      <Canyon> 1 </Canyon>
            </Municion>
 	   <Jefe>2</Jefe>

@@ -97,17 +97,17 @@ LDLIBSOPTIONS=-L/usr/lib/x86_64-linux-gnu /usr/lib/x86_64-linux-gnu/libsfml-grap
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2
+	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3: /usr/lib/x86_64-linux-gnu/libsfml-graphics.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2: /usr/lib/x86_64-linux-gnu/libsfml-system.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3: /usr/lib/x86_64-linux-gnu/libsfml-system.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2: /usr/lib/x86_64-linux-gnu/libsfml-window.so
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3: /usr/lib/x86_64-linux-gnu/libsfml-window.so
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2: ${OBJECTFILES}
+${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/Agente.o: Agente.cpp
 	${MKDIR} -p ${OBJECTDIR}
@@ -326,7 +326,7 @@ ${OBJECTDIR}/resources/tinyxml/tinyxmlparser.o: resources/tinyxml/tinyxmlparser.
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
 	${RM} -r ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-window.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-graphics.so ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/libsfml-system.so
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.2
+	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/apollox-2.3
 
 # Subprojects
 .clean-subprojects:
