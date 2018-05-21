@@ -85,7 +85,7 @@ m2D::Sprite& Meteorito::returnShape(){
 
 void Meteorito::move(){
     if(tipo==1){
-        position.setVectorX(position.getVectorX()+20);
+        position.setVectorX(position.getVectorX()+10);
         position.setVectorY(position.getVectorY()+vely);
         sprite.setPosition(position.getVectorX(),position.getVectorY());
         sprite.rotate(rot);
@@ -98,7 +98,7 @@ void Meteorito::move(){
     }
     
     else if(tipo==3){
-        position.setVectorX(position.getVectorX()-20);
+        position.setVectorX(position.getVectorX()-10);
         position.setVectorY(position.getVectorY()+vely);
         sprite.setPosition(position.getVectorX(),position.getVectorY());
         sprite.rotate(rot);

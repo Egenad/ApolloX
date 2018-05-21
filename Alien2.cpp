@@ -15,10 +15,11 @@
 #include "Alien2.h"
 #include "Nave.h"
 #include "Game.h"
+#include "Partida.h"
 
 Alien2::Alien2() {
     state=0;
-    life=1;
+    life=100;
     stop=false;
     animationState=0;
     estado=0;
@@ -193,11 +194,12 @@ void Alien2::setTexture(m2D::Texture& texture){
     sprite.setPosition(position.getVectorX(),position.getVectorY());
 }
 
-void Alien2::quitarVida(){
+void Alien2::quitarVida(int a){
     //detectar lo de la vida
-    life = life - 50;
+    life = life - a;
     if(life<=0){
-        sprite.setPosition(10000,10000);
+        this->setState();
+        Partida::Instance()->aumentScore(400);
     }
 }
 

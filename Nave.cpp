@@ -545,8 +545,12 @@ void Nave::golpea(Alien& alien){
                delete vectorBalas[i];
                 vectorBalas.erase(vectorBalas.begin()+i); 
             }
-            alien.setState();
-            Partida::Instance()->aumentScore(400);
+            if(vectorBalas[i]->getTipo()==2){
+                alien.quitarVida(35);
+            }
+            else if(vectorBalas[i]->getTipo()!=2){
+                alien.quitarVida(100);
+            }
         }
     }
 }
@@ -562,8 +566,12 @@ void Nave::golpea2(Alien2& alien){
                delete vectorBalas[i];
                 vectorBalas.erase(vectorBalas.begin()+i); 
             }
-            alien.setState();
-            Partida::Instance()->aumentScore(400);
+            if(vectorBalas[i]->getTipo()==2){
+                alien.quitarVida(35);
+            }
+            else if(vectorBalas[i]->getTipo()!=2){
+                alien.quitarVida(100);
+            }
             
         }
     }
