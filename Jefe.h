@@ -61,6 +61,7 @@ private:
     m2D::Clock explosion2;
     int alpha;
     m2D::Vector2f position;
+    bool scoreup;
 };
 
 #endif /* JEFE_H */

@@ -43,7 +43,7 @@ public:
     void dispara(m2D::Texture &textura);
     
     void dibujaBalas();
-    void quitarVida();
+    void quitarVida(int a);
     void Update();//EL que llamamos en NIVEL
     void setTexture(m2D::Texture& texture);
     int getVida();
@@ -52,9 +52,7 @@ public:
     void animation();
     m2D::Sprite& getShape();
     
-    int getTipo();
 private:
-    int type;
     int life;
     m2D::Sprite sprite;
     m2D::Texture texture;

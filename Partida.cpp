@@ -186,12 +186,12 @@ void Partida::handleInput(){
                 ship->ismovingRight(false);
             }
             if(event.getKey()==sf::Keyboard::Down){
-                if(state==1){
+                if(state==1 && wait.getElapsedTimeAsSeconds()>2){
                     ship->ismovingDown(false);
                 }
             }
-            if(event.getKey()==sf::Keyboard::Up){
-                if(state==1){
+            if(event.getKey()==sf::Keyboard::Up ){
+                if(state==1 && wait.getElapsedTimeAsSeconds()>2){
                     ship->ismovingUp(false);
                 }
             }
@@ -200,16 +200,6 @@ void Partida::handleInput(){
          if( sf::Keyboard::isKeyPressed( sf::Keyboard::Escape)){
              Game::Instance()->setState(Pausa::Instance());
          }
-         /*if( sf::Keyboard::isKeyPressed( sf::Keyboard::Up)){
-             if(state==1 && wait.getElapsedTimeAsSeconds() > 2){
-                 ship->moveUp();
-             }
-         }
-         if( sf::Keyboard::isKeyPressed( sf::Keyboard::Down)){
-             if(state==1 && wait.getElapsedTimeAsSeconds() > 2){
-                 ship->moveDown();
-             }
-         }*/
     }    //Si pulsamos cursor izquierda
 }
 
@@ -616,7 +606,7 @@ void Partida::Init(int i){
         
     }
     
-    srand(time(NULL));
+   // srand(time(NULL));
     for(int i=0;i<total;i++){
         int a=rand() % 9;
         if(a>=0&&a<=5){
@@ -716,13 +706,11 @@ void Partida::Infinite(){
     
     if(startI==0){
         //Empieza
-        std::cout<<"Empieza modo infinito"<<std::endl;
         this->inicializar();
         
         length=path;
         startI=1;
     }else{
-        std::cout<<"Continuamos modo infinito" << std::endl;
         length=length+path;
     }
     
@@ -1080,8 +1068,8 @@ void Partida::reduceLifeBarBoss(int life){
 }
 
 
-void Partida::aumentScore(){
-    score=score+400;
+void Partida::aumentScore(int s){
+    score=score+s;
     
     std::stringstream sa;
     sa << score;

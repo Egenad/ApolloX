@@ -25,17 +25,17 @@ Meteorito::Meteorito() {
         rot=-1;
     }
     if(ran1>80){ //grande
-        std::cout << "grande "<<std::endl;
+
         vely=3;
         size=1;
     }
     else if(ran1>30 && ran1<=80){ //mediano
-        std::cout << "med "<<std::endl;
+
         vely=8;
         size=2;
     }
     else if(ran1<=30){ //pequeño
-        std::cout << "peq "<<std::endl;
+
         size=0;
     }
     
@@ -85,7 +85,7 @@ m2D::Sprite& Meteorito::returnShape(){
 
 void Meteorito::move(){
     if(tipo==1){
-        position.setVectorX(position.getVectorX()+20);
+        position.setVectorX(position.getVectorX()+10);
         position.setVectorY(position.getVectorY()+vely);
         sprite.setPosition(position.getVectorX(),position.getVectorY());
         sprite.rotate(rot);
@@ -98,7 +98,7 @@ void Meteorito::move(){
     }
     
     else if(tipo==3){
-        position.setVectorX(position.getVectorX()-20);
+        position.setVectorX(position.getVectorX()-10);
         position.setVectorY(position.getVectorY()+vely);
         sprite.setPosition(position.getVectorX(),position.getVectorY());
         sprite.rotate(rot);

@@ -50,7 +50,7 @@ public:
     void updateText();
     void reduceLifeBar(int);
     void reduceLifeBarBoss(int);
-    void aumentScore();
+    void aumentScore(int s);
     void pausarMusica();
     void stopMusica();
     void saveLife();

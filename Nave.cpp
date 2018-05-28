@@ -214,27 +214,13 @@ void Nave::draw(){
 void Nave::update(){
     //move 
     if(right){//movemos derecha
-        if(position.getVectorX()<1150){ //1059
-            this->setPosition(position.getVectorX()+velocity+5,position.getVectorY());
-        }
+        this->moveRight();
     }
     
     if(left){//movemos izquierda
-        if(position.getVectorX()>375){ //475
-            this->setPosition(position.getVectorX()-velocity-5,position.getVectorY());
-        }
+        this->moveLeft();
     }
     
-    if(down){//movemos abajo
-        if(position.getVectorY()<-(Partida::Instance()->getLength()+820)){
-            this->setPosition(position.getVectorX(),position.getVectorY()+velocity+5);
-        }
-    }
-    if(up){//movemos arriba
-        if(position.getVectorY()>-(Partida::Instance()->getLength()+1600)){
-            this->setPosition(position.getVectorX(),position.getVectorY()-velocity-5);
-        }
-    }
     
     //cambiamos animacion
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
@@ -327,26 +313,18 @@ void Nave::update(){
 void Nave::update2(){
     //move 
     if(right){//movemos derecha
-        if(position.getVectorX()<1150){ //1059
-            this->setPosition(position.getVectorX()+velocity+5,position.getVectorY());
-        }
+        this->moveRight();
     }
     
     if(left){//movemos izquierda
-        if(position.getVectorX()>375){ //475
-            this->setPosition(position.getVectorX()-velocity-5,position.getVectorY());
-        }
+        this->moveLeft();
     }
     
     if(down){//movemos abajo
-        if(position.getVectorY()<-(Partida::Instance()->getLength()+820)){
-            this->setPosition(position.getVectorX(),position.getVectorY()+velocity+5);
-        }
+        this->moveDown();
     }
     if(up){//movemos arriba
-        if(position.getVectorY()>-(Partida::Instance()->getLength()+1600)){
-            this->setPosition(position.getVectorX(),position.getVectorY()-velocity-5);
-        }
+        this->moveUp();
     }
     //cambiamos animacion
     if(animation.getElapsedTimeAsSeconds()>=0.5f){
@@ -567,8 +545,12 @@ void Nave::golpea(Alien& alien){
                delete vectorBalas[i];
                 vectorBalas.erase(vectorBalas.begin()+i); 
             }
-            alien.setState();
-            Partida::Instance()->aumentScore();
+            if(vectorBalas[i]->getTipo()==2){
+                alien.quitarVida(35);
+            }
+            else if(vectorBalas[i]->getTipo()!=2){
+                alien.quitarVida(100);
+            }
         }
     }
 }
@@ -584,8 +566,12 @@ void Nave::golpea2(Alien2& alien){
                delete vectorBalas[i];
                 vectorBalas.erase(vectorBalas.begin()+i); 
             }
-            alien.setState();
-            Partida::Instance()->aumentScore();
+            if(vectorBalas[i]->getTipo()==2){
+                alien.quitarVida(35);
+            }
+            else if(vectorBalas[i]->getTipo()!=2){
+                alien.quitarVida(100);
+            }
             
         }
     }

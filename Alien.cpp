@@ -14,6 +14,7 @@
 #include "Alien.h"
 #include "Nave.h"
 #include "Game.h"
+#include "Partida.h"
 
 
 Alien::Alien() {
@@ -24,7 +25,7 @@ Alien::Alien() {
        // sprite.setTextureRect(280,70, 100, 110);
        // position.setVectorX(rand()%(600-100));
        // position.setVectorY(-50);
-    life=1;
+    life=100;
     if(type==1){
         grados=90.0f;
     }
@@ -149,13 +150,13 @@ void Alien::setTexture(m2D::Texture& texture){
     sprite.setPosition(position.getVectorX(),position.getVectorY());
 }
 
-void Alien::quitarVida(){
+void Alien::quitarVida(int a){
     //detectar lo de la vida
-    life = life - 50;
+    life = life - a;
     if(life<=0){
-        sprite.setPosition(10000,10000);
+        this->setState();
+        Partida::Instance()->aumentScore(400);
     }
-    std::cout <<"DAÑOOOOO!!" <<std::endl;
 }
 
 int Alien::getVida(){

@@ -126,6 +126,7 @@ void Bala::disparar_bomba(int n){
         break;
         case 2:
             bala.setTextureRect(620,0,70,70);
+            bala.scale(2,2);
             bala.setOrigin(70/2, 70/2);
         break;
     }

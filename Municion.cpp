@@ -30,7 +30,7 @@ void Municion::setTexture(m2D::Texture& texture){
     sprite.setTexture(texture);
     if(type==1){ //normal (verde)
         sprite.setTextureRect(239, 0, 33, 44);
-    }else if(type==2){ //rafafa (rosa)
+    }else if(type==2){ //rafaga (rosa)
         sprite.setTextureRect(271, 0, 33, 44);
     }else if(type==3){ //canyon(rojo)
         sprite.setTextureRect(302, 0, 33, 44);
